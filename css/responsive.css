@@ -1723,7 +1723,7 @@
 	
 }
 
-@media only screen and (max-width: 350px){
+@media only screen and (max-width: 400px){
 	.main-header .info-box{
 		width: 250px;
 		margin-left: -40px;
