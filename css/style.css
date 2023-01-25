@@ -1,48 +1,4 @@
-/* Sawmall HTML Template */
 
-/************ TABLE OF CONTENTS ***************
-1. Fonts
-2. Reset
-3. Global
-4. Main Header / Style Two / Style Three
-5. Main Slider
-6. Welcome Section
-7. Services Section
-8. Call To Action Section
-9. Projects Section
-10. Call To Action Section Two
-11. Expert Section
-12. Clients Section
-13. Two Fullwidth Column Section
-14. Clients Section / Style Two
-15. Main Footer / Style Two / Style Three
-16. Industrial Section
-17. Choose Section
-18. Process Section
-19. FullWidth Process Section
-20. Faq Section
-21. Testimonial Section
-22. Blogs Section
-23. NewsLetter Section / Style Two
-24. Feature Section
-25. Counter Section
-26. Pricing Section
-27. Contact Form Section
-28. Page Title
-29. Comming Soon Section
-30. Services Single Section
-31. Project Detail Section
-32. Shop Items
-33. Shoping Cart Section
-34. Checkout Section
-35. Shop Detail Section
-36. Our Blogs Section
-37. Blog Detail Section
-38. Sidebar Widgets
-39. Contact Info Section
-40. Map Section
-
-**********************************************/
 
 @import url('https://fonts.googleapis.com/css?family=Archivo:400,500,600,700|Raleway:300,400,500,600,700,800,900&amp;display=swap');
 
@@ -60,13 +16,6 @@ font-family: 'Raleway', sans-serif; */
 @import url('jquery.bootstrap-touchspin.css');
 @import url('jquery.mCustomScrollbar.min.css');
 
-/*** 
-
-====================================================================
-	Reset
-====================================================================
-
- ***/
  
 * {
 	margin:0px;
@@ -145,6 +94,46 @@ textarea{
 p{
 	position:relative;
 	line-height:1.8em;	
+}
+
+.servicesViewAll{
+	margin-top: -10px;
+}
+
+.aboutUsText{
+	text-align: justify !important;
+}
+
+.loginForm{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.styled-form input[type="text"], .styled-form input[type="email"], .styled-form input[type="password"], .styled-form input[type="tel"], .styled-form input[type="number"], .styled-form input[type="url"], .styled-form select, .styled-form textarea{
+    border: 1px solid #bcbdbd !important;
+}
+
+.styled-form input[type="text"]:focus, .styled-form input[type="email"]:focus, .styled-form input[type="password"]:focus, .styled-form input[type="tel"], .styled-form input[type="number"]:focus, .styled-form input[type="url"]:focus, .styled-form select:focus, .styled-form textarea:focus{
+    border: 1px solid #28a745 !important;
+}
+
+.decorateLink a{
+  color: #28a745;
+  text-decoration: underline;
+}
+
+.adon-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 15px;
+    color: #999999;
+    z-index: 2;
 }
 
 .auto-container{
@@ -1201,7 +1190,7 @@ img{
 .main-header .btn-box .quote-btn{
 	position:relative;
 	color:#ffffff;
-	font-size:14px;
+	font-size:16px;
 	padding:8px 20px;
 	border-radius:0px 0px 8px 0px;
 	border:1px solid #ffffff;
@@ -1210,6 +1199,20 @@ img{
 .main-header .btn-box .quote-btn:hover{
 	background-color:#ffffff;
 	color:#000000;
+}
+
+.main-header .btn-box .quote-btnSticky{
+	position:relative;
+	color: black;
+	font-size:16px;
+	padding:8px 20px;
+	border-radius:0px 0px 8px 0px;
+	border:1px solid  black;
+}
+
+.main-header .btn-box .quote-btnSticky:hover{
+	background-color: #000000;
+	color: #ffffff;
 }
 
 .main-header.header-style-two .btn-box .quote-btn{
@@ -1458,6 +1461,7 @@ img{
 	text-transform:capitalize;
 }
 
+
 .main-header .info-box li span{
 	font-weight:700;
 	font-size:16px;
@@ -1534,11 +1538,7 @@ img{
 }
 
 .sticky-header .logo{
-	padding:0px 0px 0px;
-}
-
-.sticky-header .logo img{
-	width:53%;
+	width:12%;
 }
 
 .fixed-header .sticky-header{
@@ -1577,7 +1577,8 @@ img{
 	letter-spacing:0px;
 	opacity:1;
 	font-weight:400;
-	padding:25px 0px;
+	padding:15px 0px;
+	margin-top: 13px;
 	font-size:16px;
 	transition:all 500ms ease;
 	-moz-transition:all 500ms ease;
@@ -1586,11 +1587,15 @@ img{
 	-o-transition:all 500ms ease;
 }
 
+.sticky-header .main-menu .navigation > li > a{
+	margin-top: 6px;
+}
+
 .main-menu .navigation > li:before{
 	position:absolute;
 	content:'';
 	left:0px;
-	top:0px;
+	top:15px;
 	width:0%;
 	height:2px;
 	opacity:0;
@@ -1960,7 +1965,7 @@ img{
 .main-slider h2{
 	position:relative;
 	color:#ffffff;
-	font-size:60px;
+	font-size:55px;
 	font-weight:700;
 	line-height:1.2em;
 	margin-bottom:20px;
@@ -2544,7 +2549,7 @@ img{
 	height:100%;
 	color:#ffffff;
 	opacity:0;
-	text-align:center;
+	text-align: justify;
 	background:#3aaf47;
 	
 	-webkit-transition: all 900ms ease;
@@ -2614,6 +2619,7 @@ img{
 	position:relative;
 	text-align:center;
 	padding:25px 15px 25px;
+	height: 150px;
 	background-color:#ffffff;
 	border-left:2px solid #3aaf47;
 	border-right:2px solid #3aaf47;
@@ -2991,11 +2997,12 @@ img{
     line-height: 22px;
     font-weight: 700;
     color: #322f2f;
+	margin-bottom: 10px;
 	z-index:1;
 	cursor: pointer;
 	padding:12px 22px 9px;
     text-transform: capitalize;
-    border: 1px solid transparent;
+    border: 1px solid #322f2f;
     transition: all 300ms ease;
     -webkit-transition: all 300ms ease;
     -ms-transition: all 300ms ease;
@@ -3074,8 +3081,9 @@ img{
 
 .gallery-block .inner-box .image .overlay-box .content{
 	position:absolute;
+	text-align: center;
 	left:0px;
-	bottom:0px;
+	bottom:35%;
 	width:100%;
 	padding:40px 30px 30px;
 }
@@ -4186,7 +4194,7 @@ img{
 
 .services-section-two .inner-container.margin-top{
 	position:relative;
-	margin-top:-200px;
+	margin-top:-170px;
 }
 
 .services-block-two{
@@ -4195,8 +4203,9 @@ img{
 
 .services-block-two .inner-box{
 	position:relative;
-	padding:35px 35px;
+	padding:15px 35px 35px 35px;
 	background-color:#ffffff;
+	height: 300px;
 	-webkit-transition:all 300ms ease;
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
@@ -4628,10 +4637,10 @@ img{
 	border:1px solid #3aaf47;
 }
 
-.featured-section .owl-dots .owl-dot.active,
+/* .featured-section .owl-dots .owl-dot.active,
 .featured-section .owl-dots .owl-dot:hover{
-	background-color:#3aaf472;
-}
+	background-color: #3aaf472;
+} */
 
 .featured-section .owl-dots .owl-dot.active:before,
 .featured-section .owl-dots .owl-dot:hover::before{
@@ -6375,6 +6384,7 @@ img{
 	padding-bottom:30px;
 }
 
+
 .project-tab .product-tab-btns .p-tab-btn{
 	position: relative;
     display: inline-block;
@@ -6388,7 +6398,7 @@ img{
 	margin-bottom:10px;
     padding: 12px 22px 9px;
     text-transform: capitalize;
-    border: 1px solid transparent;
+    border: 1px solid  #322f2f;
     transition: all 300ms ease;
     -webkit-transition: all 300ms ease;
     -ms-transition: all 300ms ease;
@@ -7063,7 +7073,8 @@ img{
 }
 
 .page-breadcrumb li a:hover{
-	
+	color: white;
+	opacity: 0.8;
 }
 
 .faq-page-section{
@@ -8371,7 +8382,7 @@ img{
 }
 
 .news-detail .inner-box .lower-content .text{
-	position;relative;
+	position:relative;
 }
 
 .news-detail .inner-box .lower-content .text p{
@@ -8831,7 +8842,7 @@ img{
 
 .error-section{
 	position:relative;
-	padding:220px 0px 260px;
+	padding:120px 0px 157px;
 	background-repeat:no-repeat;
 	background-size:cover;
 }
@@ -10446,6 +10457,7 @@ img{
 	margin-top:10px;
 }
 
+
 .styled-form .form-group{
 	position:relative;
 	margin-bottom:30px;
@@ -10478,6 +10490,15 @@ img{
 .styled-form .pull-left label,
 .styled-form .pull-right label{
 	cursor:pointer;
+}
+
+.pull-right a{
+	font-weight: bold;
+}
+
+.pull-right a:hover{
+	color: var(--green);
+	
 }
 
 .styled-form .form-group .adon-icon{
@@ -11050,6 +11071,7 @@ img{
 .rtl .shop-item .inner-box .lower-content .pull-right,
 .rtl .page-title .pull-right{
 	float:left;
+	
 }
 
 .rtl .comming-soon .emailed-form .form-group input[type="submit"],
