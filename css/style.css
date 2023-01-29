@@ -83,10 +83,6 @@ h1,h2,h3,h4,h5,h6 {
 	font-family: 'Raleway', sans-serif;
 }
 
-input,button,select,textarea{
-	
-}
-
 textarea{
 	overflow:hidden;
 }
@@ -94,6 +90,20 @@ textarea{
 p{
 	position:relative;
 	line-height:1.8em;	
+}
+
+#signupMessage{
+	padding-bottom: 12px;
+	margin-top: -6px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#loginMessage{
+	padding-bottom: 15px;
+	margin-top: -12px;
+	font-size: 16px;
+	font-weight: bold;
 }
 
 .servicesViewAll{
@@ -109,6 +119,238 @@ p{
 	justify-content: center;
 	align-items: center;
 }
+
+/* Logged In user dropdown */
+:root {
+    --circleSize: 105px;
+    --radius: 100px;
+    --shadow: 0 0 10px 0 rgba(255,255,255,.35);
+    --fontColor: rgb(250,250,250);
+}
+
+div.userProfile{
+	position: fixed;
+	background: url(../images/background/14.jpg);
+	box-shadow: 0px 0px 20px;
+	border-radius: 10px;
+	z-index: 3;
+	top: 160px;
+	right: 100px;
+	margin: 10px auto auto auto;
+	text-align: center;
+	padding-top: 20px;
+	color: white;
+	width: 320px;
+	height: auto !important;
+	
+}
+
+a.ManageAccountLink{
+	text-decoration: none;
+	padding: 5px 38px 5px 38px;
+	border-radius: 5px; 
+	color: white;
+	background-image: url(../images/sabyinyo.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-attachment: fixed;
+	box-shadow: 0px 0px 20px gray;
+}
+
+a.ManageAccountLink:hover{
+	background: white;
+	color: black;
+}
+
+div.profilePicture{
+	font-family: 'Archivo', sans-serif !important;
+	background: url(../images/background/1.jpg);
+	color: white;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	line-height: 48px;
+	font-weight: bold;
+	font-size: 20px;
+	cursor: pointer;
+	text-align: center;
+	margin-top: -4px;
+}
+
+img.topProfileImage{
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	cursor: pointer;
+	text-align: center;
+	margin-top: -3px;
+}
+
+img.inProfileImage{
+	width: 70px;
+	border-radius: 50%;
+	cursor: pointer;
+	text-align: center; 
+}
+
+.profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+    transition: all .3s ease;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .profile-pic img {
+    position: absolute;
+    object-fit: cover;
+    width: var(--circleSize);
+    height: var(--circleSize);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    z-index: 0;
+  }
+
+div.profilePictureIn:hover{
+	background: black;
+	color: #cba10a;
+}
+
+.removeImage{
+	color: red;
+	font-weight: bolder;
+}
+
+div.switchAccount{
+	border-top: 2px solid rgba(0, 0, 0, 0.54);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.54);
+	padding-top: 20px;
+}
+
+p.switchAccountLink{ 
+	padding: 5px; 
+	border-radius: 5px; 
+	cursor: pointer; 
+	background-image: url(../images/background/10.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+	margin-top: 6px;
+	margin-bottom: 5px;
+    font-weight: bold;
+}
+
+p.switchAccountLink:hover{
+	background: white;
+	color: black;
+}
+
+div.preNavLogout h5 a{
+   
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    background-color: #3aaf47;
+    padding: 5px 18px 5px 18px;  
+    border-radius: 5px;
+    transition: all 1s;
+}
+
+div.preNavLogout h5 a:hover{
+    text-decoration: none;
+    color: var(--myColor);
+    background-color: white;
+    cursor: pointer;  
+}
+
+/* Logged In user dropdown */
+
+
+/* Edit profile section */
+    
+.profile-pic input {
+      display: none;
+}
+
+.profile-picRight{
+    position: absolute;
+    object-fit: cover;
+    width: var(--circleSize);
+    height: var(--circleSize);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    z-index: 0;
+    background: white;
+    color: #28a745;
+    border-radius: 50%;
+    text-align: center !important;
+    line-height: 165px;
+    font-weight: bold;
+    font-size: 40px;
+	line-height: 110px;
+    cursor: pointer;
+}
+
+  
+  .profile-pic .-label {
+    cursor: pointer;
+    height: var(--circleSize);
+    width: var(--circleSize);
+	margin-top: 8px;
+  }
+
+
+  .profile-pic:hover .-label {     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.54);
+    z-index: 10000;
+    color: var(--fontColor);
+    transition: background-color .2s ease-in-out;
+    border-radius: var(--radius);
+   
+}
+
+.profile-pic span {
+  display: flex;
+  padding: .2em;
+  height: 1.5em;
+}
+
+.profile-pic span img{
+    display: flex;
+    padding: .2em;	
+    height: 1.5em;
+  }
+
+
+/* Global Preloader */
+
+.globalPreloader{
+    width: 250px;
+    background: transparent;
+    border-radius: 6px !important;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%) scale(1);
+    text-align: center;
+    color: #333;
+    z-index: 999;
+    visibility: hidden;
+  }
+  
+  .open-globalPreloader{
+    visibility: visible;
+  }
+  
+  
+  .globalPreloader img{
+    width: 100%;
+  }
+
 
 .styled-form input[type="text"], .styled-form input[type="email"], .styled-form input[type="password"], .styled-form input[type="tel"], .styled-form input[type="number"], .styled-form input[type="url"], .styled-form select, .styled-form textarea{
     border: 1px solid #bcbdbd !important;
@@ -1118,9 +1360,7 @@ img{
 	color:#999999;
 }
 
-.main-header.header-style-two .outer-box .cart-box{
-	
-}
+
 
 .main-header.header-style-two .outer-box .cart-box .cart-box-btn{
 	color:#000000;
@@ -1199,6 +1439,25 @@ img{
 .main-header .btn-box .quote-btn:hover{
 	background-color:#ffffff;
 	color:#000000;
+}
+
+.main-header .btn-box .quote-btn-logout{
+	position:relative;
+	color:#ffffff;
+	padding:1px 20px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	border-radius:0px 0px 8px 0px;
+	border:1px solid #ffffff;
+}
+
+.main-header .btn-box .quote-btn-logout h5 a{
+	font-size:16px;
+}
+
+.main-header .btn-box .quote-btn-logout:hover{
+	background-color:#ffffff;
+	color:black;
 }
 
 .main-header .btn-box .quote-btnSticky{

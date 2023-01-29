@@ -12,7 +12,7 @@
 
 	<!-- Color Switcher Mockup -->
 	<link href="../css/color-switcher-design.css" rel="stylesheet">
-
+	<script src="https://kit.fontawesome.com/557e6c8ef8.js" crossorigin="anonymous"></script>
 	<!--Color Themes -->
 	<link id="theme-color-file" href="../css/color-themes/default-theme.css" rel="stylesheet">
 
@@ -122,7 +122,9 @@
 									<div class="outer-box clearfix">
 
 										<div class="btn-box">
-											<a href="login.html" class="quote-btn theme-btn">Login / SignUp</a>
+											<div id="addProfile" class="addProfile theme-btn"></div>
+											<a href="login.html" id="preNavLogin" class="quote-btn theme-btn">Login / SignUp</a>
+											
 										</div>
 
 									</div>
@@ -153,7 +155,8 @@
 
 						<div class="outer-box clearfix">
 							<div class="btn-box">
-								<a href="login.html" class="quote-btnSticky theme-btn">Login / SignUp</a>
+								<div id="addProfile" class="addProfile theme-btn"></div>
+								<a href="login.html" id="preNavLogin" class="quote-btnSticky theme-btn">Login / SignUp</a>
 							</div>
 
 						</div>
@@ -181,7 +184,7 @@
 		<!-- End Main Header -->
 
 		<!-- Main Slider -->
-		<section class="main-slider">
+		<section class="main-slider" id="hideUserProfile">
 			<div class="color-one"></div>
 			<div class="color-two"></div>
 			<div class="main-slider-carousel owl-carousel owl-theme">
@@ -1751,7 +1754,7 @@
 		<!-- End Team Section -->
 
 		<!-- Tesimonial Section Two -->
-		<section class="testimonial-section-two">
+		<section class="testimonial-section-two" id="contact">
 			<div class="image-layer" style="background-image:url(../images/background/4.jpg)"></div>
 			<div class="auto-container">
 				<div class="sec-title light">
@@ -1984,7 +1987,10 @@
 		</section>
 		<!--End Clients Section-->
 
-		<!-- End Team Section -->
+		<!-- Global -->
+		<div class="globalPreloader" id="globalPreloaderIndex">
+			<img src="../../images/icons/preloader2.gif" alt="Loading...">
+		</div>
 
 		<!-- Main Footer -->
 		<footer class="main-footer" style="background-image: url(../images/background/map-pattern.png)">
@@ -2093,6 +2099,15 @@
 
 	<!--Scroll to top-->
 	<div class="scroll-to-toped scroll-to-target" data-target="html"><span class="fa fa-long-arrow-up"></span></div>
+
+
+	<!--Global scripts-->
+    <script src="js/Integration/loggedInUser.js"></script>
+    <script src="js/Integration/logout.js"></script>
+    <script src="js/Integration/userProfilePicture.js"></script>
+
+	<!--Local scripts-->
+
 
 	<script src="../js/jquery.js"></script>
 	<script src="../js/popper.min.js"></script>
