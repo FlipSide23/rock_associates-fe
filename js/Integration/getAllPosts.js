@@ -17,12 +17,10 @@ async function getAllPosts(){
     }
   
     let response = await fetch(`https://rockassociates.cyclic.app/getAllPosts`+query)    
-    const allPosts = await response.json();
-    window.scrollTo(0, 0); 
+    const allPosts = await response.json(); 
     let posts = allPosts.allAvailablePosts;
-    console.log(posts)
-    
-
+    console.log(posts) 
+    window.scrollTo(0, 0); 
     if(posts.length === 0){
         postsContainer.innerHTML = `
             <div class="noPostFound">
