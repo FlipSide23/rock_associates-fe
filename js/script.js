@@ -11,12 +11,12 @@
 	}
 	function handlePreloaderBlog() {
 		if($('.preloaderBlog').length){
-			$('.preloaderBlog').delay(1600).fadeOut(600);
+			$('.preloaderBlog').delay(600).fadeOut(600);
 		}
 	}
 	function handlePreloaderSingleBlog() {
 		if($('.preloaderSingleBlog').length){
-			$('.preloaderSingleBlog').delay(2000).fadeOut(600);
+			$('.preloaderSingleBlog').delay(600).fadeOut(600);
 		}
 	}
 	
