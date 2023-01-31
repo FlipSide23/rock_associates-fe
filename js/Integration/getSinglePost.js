@@ -10,7 +10,7 @@ async function postDetails(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch(`https://rockassociates.cyclic.app/getSinglePost/${slug}`, getData)
+    let response = await fetch(`http://localhost:5000/getSinglePost?slug=${slug}`, getData)
     const fetchedData = await response.json() 
     const singlePost = fetchedData.fetchedPost;
 
@@ -32,8 +32,7 @@ async function postDetails(){
     const dateCreatedSingleBlog = document.getElementById("dateCreatedSingleBlog")
     dateCreatedSingleBlog.innerHTML = `${singlePost.createdAt} `
 
-    totalPosts= fetchedData.fetchedPostDetails.totalPosts;
-    return totalPosts;
+    return {"postInfo": singlePost, "otherPostDetails": fetchedData.fetchedPostDetails};
 }
 
 postDetails()
@@ -45,9 +44,9 @@ postDetails()
 let singlePostsContainer = document.getElementById("singlePostsContainer");
 async function getRelatedPosts(){
 
-    const postsCount = await postDetails()
-
-    let response = await fetch(`https://rockassociates.cyclic.app/getAllPosts?perPage=${postsCount}`)    
+    const postsCount = (await postDetails()).otherPostDetails.totalPosts
+    
+    let response = await fetch(`http://localhost:5000/getAllPosts?perPage=${postsCount}`)    
     const allPosts = await response.json();
     let relatedPosts = allPosts.allAvailablePosts; 
     let posts = relatedPosts.filter(post => post.slug !== slug);

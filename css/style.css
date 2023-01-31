@@ -371,6 +371,62 @@ div.preNavLogout h5 a:hover{
   }
 
 
+/* popup box */
+
+.popupBox{
+    width: 400px;
+    background: white;
+    border-radius: 6px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    z-index: 999;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    box-shadow: 0px 0px 20px gray;
+  }
+  
+  .open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .popupBox img{
+    width: 100px;
+    margin-top: -50px;
+  }
+  .popupBox h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 10px 0 10px;
+  }
+  .popupBox p{
+    font-size: 17px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  
+  .popupBox button.cancel{
+    width: 40%;
+    margin-top: 30px;
+    padding: 10px 0;
+    background: rgb(60, 194, 60);
+    color: white;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  }
+
+
 .styled-form input[type="text"], .styled-form input[type="email"], .styled-form input[type="password"], .styled-form input[type="tel"], .styled-form input[type="number"], .styled-form input[type="url"], .styled-form select, .styled-form textarea{
     border: 1px solid #bcbdbd !important;
 }

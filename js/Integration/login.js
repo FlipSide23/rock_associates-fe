@@ -31,9 +31,6 @@ function login(){
         headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-    const cookies = document.cookie;
-    console.log(cookies);
-
     fetch("https://rockassociates.cyclic.app/loginUser", sendData)
     .then(response => response.json())
     .then((fetchedData)=>{
@@ -55,7 +52,7 @@ function login(){
 
         else if (fetchedData.successMessage){
             localStorage.setItem("token", JSON.stringify(fetchedData.Access_Token))
-            location = "index.html"
+            location = document.referrer;
         }
 
         else{

@@ -9,6 +9,7 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
+<link href="css/singleBlog.css" rel="stylesheet">
 
 <!--Color Switcher Mockup -->
 <link href="css/color-switcher-design.css" rel="stylesheet">
@@ -202,12 +203,67 @@
 									
 								</div>
 							</div>
+
+							<!--Comments Area-->
+							<div class="comments-area">
+								<!-- <div class="group-title">
+									<h4>Comments</h4>
+								</div> -->
+
+								 <!-- Likes and comments -->
+								 <div class="likesAndComments">
+                        
+									<ul id="listLikes" class="listLikes">
+										<p class="tools_comment postLikes">
+											<a class="like" id="postLike">Like</a>
+											<span aria-hidden="true"> · </span>
+											<i class="fa fa-thumbs-o-up"></i> <span class="count" id="countLikes"></span> 
+										</p>
+									</ul>
+			
+									<a href="">
+										<p class="postComments">
+											<img class="postLikes" src="images/icons/Comments.png" alt=""><span id="countComments"></span>
+										</p> 
+									</a> 
+								</div>
+			
+			
+								<section class="comments">
+										<div class="container">
+											<div class="col-md-12" id="fbcomment">
+									
+												<div class="body_comment">
+													<div class="row topBox">
+														<div class="avatar_comment col-md-1" id="commentorAvatar" style="padding: 10px;">
+															
+														</div>
+														<div class="box_comment col-md-11">
+															<textarea class="commentar" placeholder="Add a comment..." id="commentBody"></textarea>
+															<div class="box_post">
+															<div class="pull-right">
+																<button  type="button" value="1" id="submitComment">Post</button>
+															</div>
+															</div>
+														</div>
+													</div>
+													
+													<ul id="list_comment" class="col-md-12">
+													   
+														
+													</ul> 
+													
+												</div>
+											</div>
+										</div>
+								</section>
+							</div>
 							
 							
 							<!-- Author Box -->
 							<div class="author-box">
 								<div class="author-inner">
-									<div class="thumb"><img id="authorImageLink" src="images/Ruzindana.jpg" alt=""></div>
+									<div class="thumb"><img id="authorImageLink" src="" alt=""></div>
 									<h4 class="name">About the author</h4>
 									<ul class="social-icon clearfix">
 										<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -222,17 +278,6 @@
 							
 						</div>
 					</div>
-					
-					<!--Comments Area-->
-					<div class="comments-area">
-						<div class="group-title">
-							<h4>Comments</h4>
-						</div>
-						
-					
-						
-					</div>
-					
 					
 				</div>
 				
@@ -278,6 +323,17 @@
         </div>
     </section>
     <!--End Clients Section-->
+
+	<!-- popup boxes -->
+    
+    <div class="popupBox" id="popupBoxLikes">
+        <img src="images/icons/attention.png" alt="">
+        <p>Please Login to like a post!</p>
+        <div class="buttons">
+            <button onclick="closePopupSingleBlog()"  class="deletePost">Close</button>
+            <button type="submit" class="cancel login" onclick="goToLogin()">Login</button>        
+        </div>
+      </div>
 	
 	<!-- Footer Style Two -->
     <footer class="main-footer" style="background-image: url(../images/background/map-pattern.png)">
@@ -393,6 +449,7 @@
 
 <!--Local scripts-->
 <script src="js/Integration/getSinglePost.js"></script>
+<script src="js/Integration/likes.js"></script>
 
 <script src="js/jquery.js"></script>
 <script src="js/popper.min.js"></script>
