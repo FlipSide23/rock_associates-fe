@@ -1,6 +1,6 @@
 async function loggedInUser(){
-    const preNavLogin = document.querySelectorAll("[id='preNavLogin']");
-    const addProfile = document.querySelectorAll("[id='addProfile']");
+    const preNavLogin = document.getElementById("preNavLogin");
+    const addProfile = document.getElementById("addProfile");
     // const preNavToken = sessionStorage.getItem("token")
     // if(preNavToken){
     //     preNavLogin.innerHTML = `<img src="../images/Spinner.gif" alt="" width="40px">`
@@ -12,19 +12,17 @@ async function loggedInUser(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-  let response = await fetch("http://localhost:5000/loggedInUser", getData)
+  let response = await fetch("https://rockassociates.cyclic.app/loggedInUser", getData)
   const fetchedData = await response.json()
   console.log(fetchedData)
 
   if(!fetchedData.invalidToken){
-    for(var j = 0; j < preNavLogin.length; j++) 
-    preNavLogin[j].style.display = "none"
+    preNavLogin.style.display = "none"
   }
  
 //   document.title = "Ernest Ruzindana"
-  
-  for(var k = 0; k < addProfile.length; k++)  
-  addProfile[k].innerHTML = `
+    
+  addProfile.innerHTML = `
   <!DOCTYPE html>
   <html lang="en">
   <head>

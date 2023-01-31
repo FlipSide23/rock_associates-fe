@@ -6,7 +6,17 @@
 	//Hide Loading Box (Preloader)
 	function handlePreloader() {
 		if($('.preloader').length){
-			$('.preloader').delay(200).fadeOut(500);
+			$('.preloader').delay(200).fadeOut(600);
+		}
+	}
+	function handlePreloaderBlog() {
+		if($('.preloaderBlog').length){
+			$('.preloaderBlog').delay(1600).fadeOut(600);
+		}
+	}
+	function handlePreloaderSingleBlog() {
+		if($('.preloaderSingleBlog').length){
+			$('.preloaderSingleBlog').delay(2000).fadeOut(600);
 		}
 	}
 	
@@ -920,6 +930,8 @@
 	
 	$(window).on('load', function() {
 		handlePreloader();
+		handlePreloaderBlog();
+		handlePreloaderSingleBlog();
 		enableMasonry();
 	});	
 

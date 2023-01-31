@@ -20,7 +20,7 @@ function UpdateUserProfile(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/updateProfilePicture", sendData)
+fetch("https://rockassociates.cyclic.app/updateProfilePicture", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)
@@ -43,7 +43,7 @@ async function deleteUserProfilePicture(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token"))})
     }
 
-fetch("http://localhost:5000/deleteProfilePicture", sendData)
+fetch("https://rockassociates.cyclic.app/deleteProfilePicture", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

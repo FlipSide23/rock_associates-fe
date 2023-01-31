@@ -635,6 +635,15 @@
 
 @media only screen and (max-width: 767px){
 
+	.blog-page-section .search-box .form-group input[type="text"],
+    .blog-page-section .search-box .form-group input[type="search"]{
+	width: 90%;
+}
+
+.blog-page-section .search-box .form-group button{
+	right:38px;
+}
+
 	.servicesViewAll{
 		display: none;
 	}

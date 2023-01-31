@@ -14,9 +14,9 @@
 <link href="css/color-switcher-design.css" rel="stylesheet">
 <!--Color Themes -->
 <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
-
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<script src="https://kit.fontawesome.com/557e6c8ef8.js" crossorigin="anonymous"></script>
+<link rel="shortcut icon" href="images/mainLogo.jpg" type="image/x-icon">
+	<link rel="icon" href="images/mainLogo.jpg" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +31,7 @@
 <div class="page-wrapper">
  	
     <!-- Preloader -->
-    <div class="preloader"></div>
+    <div class="preloaderSingleBlog"></div>
  	
  	<!-- Main Header-->
 	 <header class="main-header header-style-one">
@@ -121,7 +121,8 @@
 								<div class="outer-box clearfix">
 
 									<div class="btn-box">
-										<a href="login.html" class="quote-btn theme-btn">Login / SignUp</a>
+										<div id="addProfile" class="addProfile theme-btn"></div>
+										<a href="login.html" id="preNavLogin" class="quote-btn theme-btn">Login / SignUp</a>
 									</div>
 
 								</div>
@@ -189,21 +190,15 @@
                 	<div class="news-detail">
 						<div class="inner-box">
 							<div class="image">
-								<img src="images/blogImage.jpg" alt="" width="670px" height="330.64px" />
+								<img src="" id="postPictureSource" alt="" width="670px" height="330.64px" />
 							</div>
 							<div class="lower-content">
 								<ul class="post-meta">
-									<li>Steve Ndicunguye</li>
-									<li>January 23, 2023</li>
+									<li id="authorNameSingleBlog"></li>
+									<li id="dateCreatedSingleBlog"></li>
 								</ul>
-								<h3>Javascript course designed for beginners</h3>
-								<div class="text">
-									<p>We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charm of pleasure of the moment, so blinded by desire, that they cannot foresee the pain ut and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying uts through shrinking from toil and pain These cases are perfectly simple and easy to distinguish.</p>
-									<p>Pleasures and praising pains was born and will give you a completed account of the systems seds, and seds expound the actual teaching of the great explorer the master builder Nor again is there anyones who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances of human happiness.</p>
-									<p>We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charm of pleasure of the moment, so blinded by desire, that they cannot foresee the pain ut and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying uts through shrinking from toil and pain These cases are perfectly simple and easy to distinguish.</p>
-									<p>Pleasures and praising pains was born and will give you a completed account of the systems seds, and seds expound the actual teaching of the great explorer the master builder Nor again is there anyones who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances of human happiness.</p>
-									<p>We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charm of pleasure of the moment, so blinded by desire, that they cannot foresee the pain ut and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying uts through shrinking from toil and pain These cases are perfectly simple and easy to distinguish.</p>
-									<p>Pleasures and praising pains was born and will give you a completed account of the systems seds, and seds expound the actual teaching of the great explorer the master builder Nor again is there anyones who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances of human happiness.</p>
+								<h3 id="singleBlogTitle"></h3>
+								<div class="text" id="singleBlogContentParagraph">
 									
 								</div>
 							</div>
@@ -212,7 +207,7 @@
 							<!-- Author Box -->
 							<div class="author-box">
 								<div class="author-inner">
-									<div class="thumb"><img src="images/Ruzindana.jpg" alt=""></div>
+									<div class="thumb"><img id="authorImageLink" src="images/Ruzindana.jpg" alt=""></div>
 									<h4 class="name">About the author</h4>
 									<ul class="social-icon clearfix">
 										<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -245,68 +240,14 @@
                 <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
                 	<aside class="sidebar">
 						<div class="sidebar-inner">
-							
-							<!-- Search -->
-							<div class="sidebar-widget search-box">
-								<form method="post" action="https://expert-themes.com/html/sawmall/contact.html">
-									<div class="form-group">
-										<input type="search" name="search-field" value="" placeholder="Search for a related post......" required>
-										<button type="submit"><span class="icon fa fa-search"></span></button>
-									</div>
-								</form>
-							</div>
 
 							<!-- Categories Widget -->
 							<div class="sidebar-widget popular-posts">
 								<div class="sidebar-title">
 									<h2>Related Posts</h2>
 								</div>
-								<div class="widget-content">
-									<article class="post">
-										<figure class="post-thumb"><img src="images/mainLogo.jpg" alt=""><a href="blog-single.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-										<div class="text"><a href="blog-single.html">Python Course designed for beginners.</a></div>
-										<div class="post-info">February 14, 2019</div>
-									</article>
-									<article class="post">
-										<figure class="post-thumb"><img src="images/resource/post-thumb-2.jpg" alt=""><a href="blog-single.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-										<div class="text"><a href="blog-single.html">Node Js Course designed for beginners.</a></div>
-										<div class="post-info">February 05, 2020</div>
-									</article>
-									<article class="post">
-										<figure class="post-thumb"><img src="images/resource/post-thumb-7.jpg" alt=""><a href="blog-single.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-										<div class="text"><a href="blog-single.html">React Course designed for beginners.</a></div>
-										<div class="post-info">January 22, 2021</div>
-									</article>
-									<article class="post">
-										<figure class="post-thumb"><img src="images/mainLogo.jpg" alt=""><a href="blog-single.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-										<div class="text"><a href="blog-single.html">Python Course designed for beginners.</a></div>
-										<div class="post-info">February 14, 2019</div>
-									</article>
-									<article class="post">
-										<figure class="post-thumb"><img src="images/resource/post-thumb-2.jpg" alt=""><a href="blog-single.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-										<div class="text"><a href="blog-single.html">Node Js Course designed for beginners.</a></div>
-										<div class="post-info">February 05, 2020</div>
-									</article>
-									<article class="post">
-										<figure class="post-thumb"><img src="images/resource/post-thumb-7.jpg" alt=""><a href="blog-single.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-										<div class="text"><a href="blog-single.html">React Course designed for beginners.</a></div>
-										<div class="post-info">January 22, 2021</div>
-									</article>
-									<article class="post">
-										<figure class="post-thumb"><img src="images/mainLogo.jpg" alt=""><a href="blog-single.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-										<div class="text"><a href="blog-single.html">Python Course designed for beginners.</a></div>
-										<div class="post-info">February 14, 2019</div>
-									</article>
-									<article class="post">
-										<figure class="post-thumb"><img src="images/resource/post-thumb-2.jpg" alt=""><a href="blog-single.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-										<div class="text"><a href="blog-single.html">Node Js Course designed for beginners.</a></div>
-										<div class="post-info">February 05, 2020</div>
-									</article>
-									<article class="post">
-										<figure class="post-thumb"><img src="images/resource/post-thumb-7.jpg" alt=""><a href="blog-single.html" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-										<div class="text"><a href="blog-single.html">React Course designed for beginners.</a></div>
-										<div class="post-info">January 22, 2021</div>
-									</article>
+								<div class="widget-content" id="singlePostsContainer">
+									
 								</div>
 							</div>
 						</div>
@@ -392,7 +333,7 @@
 							<div class="text">You can get latest update from us by Subscribing to our News Letter
 							</div>
 							<div class="newsletter-form">
-								<form method="post" action="https://expert-themes.com/html/sawmall/contact.html">
+								<form method="post" action="">
 									<div class="form-group">
 										<input type="email" name="email" value="" placeholder="Your Email Address"
 											required="">
@@ -418,7 +359,7 @@
 	<div class="popup-inner">
 		<div class="overlay-layer"></div>
     	<div class="search-form">
-        	<form method="post" action="https://expert-themes.com/html/sawmall/index.html">
+        	<form method="post" action="">
             	<div class="form-group">
                 	<fieldset>
                         <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
@@ -444,6 +385,14 @@
 
 <!--Scroll to top-->
 <div class="scroll-to-toped scroll-to-target" data-target="html"><span class="fa fa-long-arrow-up"></span></div>
+
+<!--Global scripts-->
+<script src="js/Integration/loggedInUser.js"></script>
+<script src="js/Integration/logout.js"></script>
+<script src="js/Integration/userProfilePicture.js"></script>
+
+<!--Local scripts-->
+<script src="js/Integration/getSinglePost.js"></script>
 
 <script src="js/jquery.js"></script>
 <script src="js/popper.min.js"></script>

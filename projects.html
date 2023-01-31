@@ -13,9 +13,9 @@
 <link href="css/color-switcher-design.css" rel="stylesheet">
 <!--Color Themes -->
 <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
-
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<script src="https://kit.fontawesome.com/557e6c8ef8.js" crossorigin="anonymous"></script>
+<link rel="shortcut icon" href="images/mainLogo.jpg" type="image/x-icon">
+	<link rel="icon" href="images/mainLogo.jpg" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -120,7 +120,8 @@
 								<div class="outer-box clearfix">
 
 									<div class="btn-box">
-										<a href="login.html" class="quote-btn theme-btn">Login / SignUp</a>
+										<div id="addProfile" class="addProfile theme-btn"></div>
+										<a href="login.html" id="preNavLogin" class="quote-btn theme-btn">Login / SignUp</a>
 									</div>
 
 								</div>
@@ -440,7 +441,7 @@
 							<div class="text">You can get latest update from us by Subscribing to our News Letter
 							</div>
 							<div class="newsletter-form">
-								<form method="post" action="https://expert-themes.com/html/sawmall/contact.html">
+								<form method="post" action="">
 									<div class="form-group">
 										<input type="email" name="email" value="" placeholder="Your Email Address"
 											required="">
@@ -466,7 +467,7 @@
 	<div class="popup-inner">
 		<div class="overlay-layer"></div>
     	<div class="search-form">
-        	<form method="post" action="https://expert-themes.com/html/sawmall/index.html">
+        	<form method="post" action="">
             	<div class="form-group">
                 	<fieldset>
                         <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
@@ -492,6 +493,12 @@
 
 <!--Scroll to top-->
 <div class="scroll-to-toped scroll-to-target" data-target="html"><span class="fa fa-long-arrow-up"></span></div>
+
+<!--Global scripts-->
+<script src="js/Integration/loggedInUser.js"></script>
+<script src="js/Integration/logout.js"></script>
+<script src="js/Integration/userProfilePicture.js"></script>
+
 
 <script src="js/jquery.js"></script>
 <script src="js/popper.min.js"></script>

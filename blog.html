@@ -14,9 +14,9 @@
 <link href="css/color-switcher-design.css" rel="stylesheet">
 <!--Color Themes -->
 <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
-
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<script src="https://kit.fontawesome.com/557e6c8ef8.js" crossorigin="anonymous"></script>
+<link rel="shortcut icon" href="images/mainLogo.jpg" type="image/x-icon">
+	<link rel="icon" href="images/mainLogo.jpg" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +31,7 @@
 <div class="page-wrapper">
  	
     <!-- Preloader -->
-    <div class="preloader"></div>
+    <div class="preloaderBlog"></div>
  	
  	<!-- Main Header-->
 	 <header class="main-header header-style-one">
@@ -121,7 +121,8 @@
 								<div class="outer-box clearfix">
 
 									<div class="btn-box">
-										<a href="login.html" class="quote-btn theme-btn">Login / SignUp</a>
+										<div id="addProfile" class="addProfile theme-btn"></div>
+										<a href="login.html" id="preNavLogin" class="quote-btn theme-btn">Login / SignUp</a>
 									</div>
 
 								</div>
@@ -197,126 +198,30 @@
         </div>
     </section>
     <!--End Page Title-->
+
 	
+	<div class="pageCounter">Page <span id="pageCountValue"></span> of <span id="numberOfPosts"></span></div>
 	<!-- Blog Page Section -->
 	<section class="blog-page-section">
+		<!-- Search -->
+		<div class="sidebar-widget search-box">
+			
+			<form method="post" action="">
+				<div class="form-group">
+					<input type="search" name="search-field" id="searchField" value="" placeholder="Search for a post..." required>
+					<button type="submit" id="submitSearchRequest" ><span class="icon fa fa-search"></span></button>
+				</div>
+			</form>
+		</div>
 		<div class="auto-container">
-			<div class="row clearfix">
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box">
-						<div class="image">
-							<a href="blog-single.html"><img src="images/blogImage.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li>Steve Ndicunguye</li>
-								<li>January 23, 2023</li>
-							</ul>
-							<h3><a href="blog-single.html">Javascript Course designed for <br> beginners</a></h3>
-							<a href="blog-single.html" class="read-more">Read More</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box">
-						<div class="image">
-							<a href="blog-single.html"><img src="images/blogImage.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li>Steve Ndicunguye</li>
-								<li>January 23, 2023</li>
-							</ul>
-							<h3><a href="blog-single.html">Javascript Course designed for <br> beginners</a></h3>
-							<a href="blog-single.html" class="read-more">Read More</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box">
-						<div class="image">
-							<a href="blog-single.html"><img src="images/blogImage.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li>Steve Ndicunguye</li>
-								<li>January 23, 2023</li>
-							</ul>
-							<h3><a href="blog-single.html">Javascript Course designed for <br> beginners</a></h3>
-							<a href="blog-single.html" class="read-more">Read More</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box">
-						<div class="image">
-							<a href="blog-single.html"><img src="images/blogImage.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li>Steve Ndicunguye</li>
-								<li>January 23, 2023</li>
-							</ul>
-							<h3><a href="blog-single.html">Javascript Course designed for <br> beginners</a></h3>
-							<a href="blog-single.html" class="read-more">Read More</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box">
-						<div class="image">
-							<a href="blog-single.html"><img src="images/blogImage.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li>Steve Ndicunguye</li>
-								<li>January 23, 2023</li>
-							</ul>
-							<h3><a href="blog-single.html">Javascript Course designed for <br> beginners</a></h3>
-							<a href="blog-single.html" class="read-more">Read More</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box">
-						<div class="image">
-							<a href="blog-single.html"><img src="images/blogImage.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li>Steve Ndicunguye</li>
-								<li>January 23, 2023</li>
-							</ul>
-							<h3><a href="blog-single.html">Javascript Course designed for <br> beginners</a></h3>
-							<a href="blog-single.html" class="read-more">Read More</a>
-						</div>
-					</div>
-				</div>
-				
+			<div class="row clearfix" id="postsContainer">
+
 			</div>
 			
 			<!--Post Share Options-->
 			<div class="styled-pagination text-center">
-				<ul class="clearfix">
-					<li class="prev"><a href="#"><span class="fa fa-angle-left"></span> </a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li class="active"><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li class="next"><a href="#"><span class="fa fa-angle-right"></span> </a></li>
+				<ul class="clearfix" id="blogPagination">
+
 				</ul>
 			</div>
 			
@@ -399,7 +304,7 @@
 							<div class="text">You can get latest update from us by Subscribing to our News Letter
 							</div>
 							<div class="newsletter-form">
-								<form method="post" action="https://expert-themes.com/html/sawmall/contact.html">
+								<form method="post" action="">
 									<div class="form-group">
 										<input type="email" name="email" value="" placeholder="Your Email Address"
 											required="">
@@ -427,7 +332,7 @@
 	<div class="popup-inner">
 		<div class="overlay-layer"></div>
     	<div class="search-form">
-        	<form method="post" action="https://expert-themes.com/html/sawmall/index.html">
+        	<form method="post" action="">
             	<div class="form-group">
                 	<fieldset>
                         <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
@@ -453,6 +358,14 @@
 
 <!--Scroll to top-->
 <div class="scroll-to-toped scroll-to-target" data-target="html"><span class="fa fa-long-arrow-up"></span></div>
+
+<!--Global scripts-->
+<script src="js/Integration/loggedInUser.js"></script>
+<script src="js/Integration/logout.js"></script>
+<script src="js/Integration/userProfilePicture.js"></script>
+
+<!--Local scripts-->
+<script src="js/Integration/getAllPosts.js"></script>
 
 <script src="js/jquery.js"></script>
 <script src="js/popper.min.js"></script>

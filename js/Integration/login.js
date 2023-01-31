@@ -34,7 +34,7 @@ function login(){
     const cookies = document.cookie;
     console.log(cookies);
 
-    fetch("http://localhost:5000/loginUser", sendData)
+    fetch("https://rockassociates.cyclic.app/loginUser", sendData)
     .then(response => response.json())
     .then((fetchedData)=>{
         console.log(fetchedData)
