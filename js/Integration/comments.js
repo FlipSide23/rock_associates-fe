@@ -1,4 +1,3 @@
-const post_id = localStorage.getItem("postId")
 const submitComment = document.getElementById("submitComment");
 const commentBody = document.getElementById("commentBody");
 const popupBoxComments = document.getElementById("popupBoxComments")
@@ -30,6 +29,8 @@ submitComment.addEventListener("click", (event) =>{
 
 async function comment(){
 
+    const post__id = (await postDetails()).postInfo._id
+
     const data = {
         comment: commentBody.value, 
     }
@@ -40,7 +41,7 @@ async function comment(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/createComment/"+post_id, sendData)
+fetch("http://localhost:5000/createComment/"+post__id, sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)
@@ -80,10 +81,10 @@ fetch("http://localhost:5000/createComment/"+post_id, sendData)
         el.innerHTML =
         `
         <div class="comments">
-            <div class="avatar_comment col-md-1">
+            <div class="avatar_comment">
                 ${commentorImageTemplate}
             </div>
-            <div class="result_comment col-md-11">
+            <div class="result_comment">
                 <h4>${commentorNames} <span> &nbsp &nbsp/ ${fetchedData.commentContent.createdAt}</span></h4>
                 <p>${fetchedData.commentContent.comment}</p>
                 <div class="tools_comment">
@@ -112,18 +113,19 @@ fetch("http://localhost:5000/createComment/"+post_id, sendData)
 //Fetch all comments
 async function getAllComments(){
 
+    const postId = (await postDetails()).postInfo._id
+
     const getData = {
         method: "GET",
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllComments/"+post_id, getData)
+    let response = await fetch("http://localhost:5000/getAllComments/"+postId, getData)
     const fetchedData = await response.json()
     console.log(fetchedData)
 
     const comments = fetchedData.allAvailableComments;
-    // console.log(comments[0].commentReplies)
-    
+
     const countComments = document.getElementById("countComments")
     countComments.innerHTML = `<span>(${comments.length})</span>`
 
@@ -154,75 +156,73 @@ async function getAllComments(){
         }
 
 
-        // const replyTemplate = commentsArray.commentReplies.map(myFunction).join(' ');
+        let responseReplies = await fetch("http://localhost:5000/getAllCommentReplies/"+comment_id, getData)
+        const fetchedDataReplies = await responseReplies.json()
 
-        // function myFunction(eachReply) {
+        const replies = fetchedDataReplies.allAvailableReplies;
 
-        //     const string2 = "https" || "http"
-        //     var replierImageTemplate;
-        //     if(eachReply.replierImage.includes(string2)){
-        //        replierImageTemplate = 
-        //        `<img src="${eachReply.replierImage}" alt="" class="AuthorImage" id="authorProfilePicture">`
-        //     }
+        const replyTemplate = replies.map(myFunction).join(' ');
+
+        function myFunction(eachReply) {
+
+            var replierImageTemplate;
+            if(eachReply.replyCreator.imageLink){
+               replierImageTemplate = 
+               `<img src="${eachReply.replyCreator.imageLink}" alt="" class="AuthorImage" id="authorProfilePicture">`
+            }
                  
-        //     else{
-        //         replierImageTemplate = 
-        //        ` <div class="authorImageChartsSingleBlog" id="authorImageCharts">
-        //        ${eachReply.replierImage}
-        //        </div>`
-        //     }
+            else{
+                replierImageTemplate = 
+               ` <div class="authorImageCharts" id="authorImageCharts">
+               ${eachReply.replyCreator.firstName.charAt(0)+eachReply.replyCreator.lastName.charAt(0)}
+               </div>`
+            }
 
-        // return `
-		// <li class="box_result row" id="">
-        //     <div class="replies comments">
-        //         <div class="avatar_comment col-md-1">
-        //           ${replierImageTemplate}
-        //         </div>
+        return `
+		<li class="box_result row" id="">
+            <div class="replies comments">
+                <div class="avatar_comment">
+                  ${replierImageTemplate}
+                </div>
                 
-        //         <div class="result_comment col-md-11">
-        //             <h4>${eachReply.replierName} <span> &nbsp &nbsp/ ${eachReply.dateReplied}</span></h4>
-        //             <p>${eachReply.replyBody}</p>
-        //         </div>
+                <div class="result_comment">
+                    <h4>${eachReply.replyCreator.firstName +' '+ eachReply.replyCreator.lastName} <span> &nbsp &nbsp/ ${eachReply.createdAt}</span></h4>
+                    <p>${eachReply.reply}</p>
+                </div>
                 
-        //     </div>
-        // </li>
-        // `
-        // }
-        
-        // let likeText
+            </div>
+        </li>
+        `
+        }
 
-        // const likeToken = JSON.parse(localStorage.getItem("token"))
+        // Change comment like text
         
-        // if(likeToken){
+        let likeText
 
-       
-        // const getData = {
-        //     method: "GET",
-        //     headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
-        // }
+        const likeToken = JSON.parse(localStorage.getItem("token"))
+        const allCommentLikes = commentsArray.commentLikes.map(eachLike => eachLike.user_id)
+   
+        if(likeToken){
 
-        
-
-        // let response = await fetch("https://ernestruzindana-be.cyclic.app/login/loggedInUser", getData)
+        let responseLikes = await fetch("http://localhost:5000/loggedInUser", getData)
         
         
-        //     const fetchedData = await response.json()
-        //     console.log(fetchedData)
+            const fetchedDataLikes = await responseLikes.json()
     
-        //     const userLike = fetchedData._id
+            const userLike = fetchedDataLikes.loggedInUser._id
 
-        //     if(commentsArray.comment_likes.includes(userLike)){
-        //         likeText = "Unlike"
-        //        }
+            if(allCommentLikes.includes(userLike)){
+                likeText = "Unlike"
+               }
     
-        //        else{
-        //         likeText = "Like"
-        //        }
-        // }
+               else{
+                likeText = "Like"
+               }
+        }
 
-        // else{
-        //     likeText = "Like"
-        // }
+        else{
+            likeText = "Like"
+        }
         
     
 
@@ -231,22 +231,22 @@ async function getAllComments(){
         const commentTemplate = `
         <li class="box_result row" id="${comment_id}">
             <div class="comments">
-                <div class="avatar_comment col-md-1">
+                <div class="avatar_comment">
                     ${commentorImageTemplate}
                 </div>
-                <div class="result_comment col-md-11">
+                <div class="result_comment">
                     <h4>${commentorName} <span> &nbsp &nbsp/ ${date}</span></h4>
                     <p>${body}</p>
                     
                     <div class="tools_comment">
-                        <a class="like" onclick="likeComment('${comment_id}')">Like</a>
+                        <a class="like" onclick="likeComment('${comment_id}')">${likeText}</a>
                         <span aria-hidden="true"> · </span>
                         <i class="fa fa-thumbs-o-up"></i> <span class="count" id="count">${commentLikes}</span> 
                         <span aria-hidden="true"> · </span>
                         <a class="replay" onclick="storeCommentId('${comment_id}')">Reply</a>
                     </div>
                     <ul class="child_replay" >
-                      
+                      ${replyTemplate}
                     </ul>
                 </div>
                 
@@ -265,14 +265,17 @@ getAllComments()
 
 function storeCommentId(commentId){
     localStorage.setItem("commentId", commentId)
-    let comment_id = localStorage.getItem("commentId")
 
-    return comment_id
+    const tokenReplies = JSON.parse(localStorage.getItem("token"))
+    if(!tokenReplies){
+        popupBoxCommentsReplies.classList.add("open-popup")        
+    }
 }
 
-let commentId = storeCommentId()
 
 async function commentReply(){
+    let commentId = localStorage.getItem("commentId")
+
     var comment_replay = $('.comment_replay').val();
     const data = {
         reply: comment_replay, 
@@ -303,8 +306,8 @@ fetch("http://localhost:5000/commentReply/"+commentId, sendData)
         var commentorPicture
         var commentorImageTemplate;
 
-        if(fetchedData.commentContent.user_id.imageLink){
-            commentorPicture = fetchedData.commentContent.user_id.imageLink
+        if(fetchedData.replyContent.user_id.imageLink){
+            commentorPicture = fetchedData.replyContent.user_id.imageLink
             commentorImageTemplate = 
             `<img src="${commentorPicture}" alt="" class="AuthorImage" id="authorProfilePicture">`
         }
@@ -323,19 +326,18 @@ fetch("http://localhost:5000/commentReply/"+commentId, sendData)
     el.className = "box_reply row";
     el.innerHTML =
     `
-    <li class="box_reply row">
-    <div class="commentReplies">
-        <div class="avatar_comment col-md-1">
+    <div class="replies comments">
+        <div class="avatar_comment">
             ${commentorImageTemplate}
         </div>
-        <div class="result_comment col-md-11">
+        <div class="result_comment">
             <h4>${commentorNames} <span> &nbsp &nbsp/ ${fetchedData.replyContent.createdAt}</span></h4>
             <p>${comment_replay}</p>
         </div>
     </div>
-    </li>
+
     `
-    $current.closest('li').find('.child_replay').append(el);
+    $current.closest('li').find('.child_replay').prepend(el);
     $('.comment_replay').val('');
     cancel_reply();
 
@@ -343,4 +345,9 @@ fetch("http://localhost:5000/commentReply/"+commentId, sendData)
 
 })
 	
+}
+
+
+function refreshPage(){
+    location.reload()
 }

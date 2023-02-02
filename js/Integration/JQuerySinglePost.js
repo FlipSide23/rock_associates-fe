@@ -92,7 +92,7 @@ $(document).ready(function() {
 			el.innerHTML =
 			`
 				<div class="col-md-12 reply_comment">
-						<div class="avatar_comment col-md-1\">
+						<div class="avatar_comment">
 						${commentorImageTemplate}
 						</div>
 						<div class="box_comment">
@@ -106,8 +106,7 @@ $(document).ready(function() {
 						</div>
 				</div>
 			`
-			$current.closest('li').find('.child_replay').append(el);
-			document.title = "Ernest Ruzindana"
+			$current.closest('li').find('.child_replay').prepend(el);
 	}
 	});
 

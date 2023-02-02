@@ -2,7 +2,7 @@
 const url = new URL(window.location.href);
 const slug = url.searchParams.get('slug');
 let totalPosts;
-let postId
+
 async function postDetails(){ 
 
     const getData = {
@@ -15,7 +15,6 @@ async function postDetails(){
     const singlePost = fetchedData.fetchedPost;
 
     localStorage.setItem("postId", singlePost._id)
-    postId = localStorage.getItem("postId");
 
     const singleBlogTitle = document.getElementById("singleBlogTitle")
     singleBlogTitle.innerHTML = singlePost.title
@@ -84,7 +83,6 @@ async function postDetails(){
 
 postDetails()
 
-console.log(postId)
 
 // Get related posts
 
@@ -92,7 +90,7 @@ let singlePostsContainer = document.getElementById("singlePostsContainer");
 async function getRelatedPosts(){
 
     const postsCount = (await postDetails()).otherPostDetails.totalPosts
-    
+
     let response = await fetch(`http://localhost:5000/getAllPosts?perPage=${postsCount}`)    
     const allPosts = await response.json();
     let relatedPosts = allPosts.allAvailablePosts; 

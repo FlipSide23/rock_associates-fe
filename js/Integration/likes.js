@@ -1,6 +1,7 @@
 // Post Likes
 const popupBoxLikes = document.getElementById("popupBoxLikes")
 const postLike = document.getElementById("postLike");
+const popupBoxCommentLikes = document.getElementById("popupBoxCommentLikes")
 
 postLike.addEventListener("click", (event) =>{
     event.preventDefault(); 
@@ -10,6 +11,10 @@ postLike.addEventListener("click", (event) =>{
 
 function closePopupSingleBlog(){
     popupBoxLikes.classList.remove("open-popup")
+}
+
+function closePopupCommentLikes(){
+    popupBoxCommentLikes.classList.remove("open-popup")
 }
 
 
@@ -33,6 +38,25 @@ async function like(){
 
     if(fetchedData.invalidToken){
         popupBoxLikes.classList.add("open-popup")
+    }
+    })   
+
+}
+
+async function likeComment(commentId){
+
+    const sendData = {
+        method: "POST",
+        headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
+    }
+
+    fetch("http://localhost:5000/likeComment/"+commentId, sendData)
+    .then(response => response.json())
+    .then((fetchedData)=>{
+        console.log(fetchedData)
+
+    if(fetchedData.invalidToken){
+        popupBoxCommentLikes.classList.add("open-popup")
     }
     })   
 
