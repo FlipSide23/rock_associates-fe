@@ -114,6 +114,26 @@ p{
 	text-align: justify !important;
 }
 
+
+div.authorImageCharts{
+    background: black;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    line-height: 47px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center !important;
+}
+
+
+img.AuthorImage{
+    width: 45px;
+    border-radius: 50%;
+}
+
 .loginForm{
 	display: flex;
 	justify-content: center;
@@ -234,7 +254,7 @@ img.inProfileImage{
 
 div.profilePictureIn:hover{
 	background: black;
-	color: #cba10a;
+	color: #3aaf47;
 }
 
 .removeImage{
@@ -9018,7 +9038,7 @@ img{
 
 .sidebar-page-container .comments-area{
 	position:relative;
-	margin-top:60px;
+	margin-top: 15px;
 	margin-bottom:50px;
 }
 
@@ -9031,7 +9051,7 @@ img{
 	font-size:24px;
 	color:#c08c4d;
 	font-weight:700;
-	margin-bottom:30px;
+	margin-top: 30px;
 	text-transform:capitalize;
 }
 
@@ -9134,9 +9154,10 @@ img{
 
 ***/
 
+
 .comment-form .group-title h4{
 	position:relative;
-	margin-bottom:10px;	
+	margin-top: 20px;	
 }
 
 .comment-form .form-text{

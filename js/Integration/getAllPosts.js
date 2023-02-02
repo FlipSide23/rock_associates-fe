@@ -16,7 +16,7 @@ async function getAllPosts(){
 
     }
   
-    let response = await fetch(`https://rockassociates.cyclic.app/getAllPosts`+query)    
+    let response = await fetch(`http://localhost:5000/getAllPosts`+query)    
     const allPosts = await response.json(); 
     let posts = allPosts.allAvailablePosts;
     console.log(posts) 

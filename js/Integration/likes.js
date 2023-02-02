@@ -1,6 +1,6 @@
 // Post Likes
-const postLike = document.getElementById("postLike");
 const popupBoxLikes = document.getElementById("popupBoxLikes")
+const postLike = document.getElementById("postLike");
 
 postLike.addEventListener("click", (event) =>{
     event.preventDefault(); 
@@ -19,8 +19,7 @@ function goToLogin(){
 
 
 async function like(){
-
-    const post__id = (await postDetails()).postInfo._id
+    const post__id = localStorage.getItem("postId")
 
     const sendData = {
         method: "POST",
@@ -28,13 +27,19 @@ async function like(){
     }
 
     fetch("http://localhost:5000/likePost/"+post__id, sendData)
-.then(response => response.json())
-.then((fetchedData)=>{
-    console.log(fetchedData)
+    .then(response => response.json())
+    .then((fetchedData)=>{
+        console.log(fetchedData)
 
-   if(fetchedData.invalidToken){
-    popupBoxLikes.classList.add("open-popup")
-   }
-})
+    if(fetchedData.invalidToken){
+        popupBoxLikes.classList.add("open-popup")
+    }
+    })   
 
 }
+
+
+
+
+
+

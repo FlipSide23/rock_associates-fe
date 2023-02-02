@@ -2,7 +2,7 @@
 const url = new URL(window.location.href);
 const slug = url.searchParams.get('slug');
 let totalPosts;
-
+let postId
 async function postDetails(){ 
 
     const getData = {
@@ -13,6 +13,9 @@ async function postDetails(){
     let response = await fetch(`http://localhost:5000/getSinglePost?slug=${slug}`, getData)
     const fetchedData = await response.json() 
     const singlePost = fetchedData.fetchedPost;
+
+    localStorage.setItem("postId", singlePost._id)
+    postId = localStorage.getItem("postId");
 
     const singleBlogTitle = document.getElementById("singleBlogTitle")
     singleBlogTitle.innerHTML = singlePost.title
@@ -32,12 +35,56 @@ async function postDetails(){
     const dateCreatedSingleBlog = document.getElementById("dateCreatedSingleBlog")
     dateCreatedSingleBlog.innerHTML = `${singlePost.createdAt} `
 
+    const countLikes = document.getElementById("countLikes")
+    countLikes.innerHTML = `${singlePost.likes_count} `
+
+    // Change like text
+    const postLike = document.getElementById("postLike")
+    if(fetchedData.fetchedPostDetails.liked_by_current_user == true){
+        postLike.innerHTML = "Unlike"
+    }
+
+    // Change the picture above the comment body
+
+    const commentorAvatar = document.getElementById("commentorAvatar")
+	const Token = JSON.parse(localStorage.getItem("token"))
+	if (!Token){
+		commentorAvatar.innerHTML = `<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"/>`
+	   }
+    else{
+
+        const userGetData = {
+            method: "GET",
+            headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
+        }
+
+        let userResponse = await fetch("http://localhost:5000/loggedInUser", userGetData)
+        const userFetchedData = await userResponse.json()
+        console.log(userFetchedData)
+
+        if(userFetchedData.successMessage){
+            if(userFetchedData.loggedInUser.imageLink){
+                const commentorPicture = userFetchedData.loggedInUser.imageLink
+                commentorAvatar.innerHTML = 
+                `<img src="${commentorPicture}" alt="" class="AuthorImage" id="authorProfilePicture">`
+            }
+    
+            else{
+                commentorAvatar.innerHTML = 
+                ` <div class="authorImageCharts" id="authorImageCharts">
+                ${userFetchedData.loggedInUser.firstName.charAt(0)+userFetchedData.loggedInUser.lastName.charAt(0)}
+                </div>`
+            }
+        }
+    }
+
+
     return {"postInfo": singlePost, "otherPostDetails": fetchedData.fetchedPostDetails};
 }
 
 postDetails()
 
-
+console.log(postId)
 
 // Get related posts
 
@@ -92,3 +139,6 @@ async function getRelatedPosts(){
     }
 
 getRelatedPosts();
+
+
+

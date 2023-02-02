@@ -36,7 +36,7 @@ function singup(){
         headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("https://rockassociates.cyclic.app/createUser", sendData)
+fetch("http://localhost:5000/createUser", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

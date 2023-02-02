@@ -16,6 +16,7 @@
 <!--Color Themes -->
 <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/557e6c8ef8.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="shortcut icon" href="images/mainLogo.jpg" type="image/x-icon">
 	<link rel="icon" href="images/mainLogo.jpg" type="image/x-icon">
 
@@ -206,9 +207,7 @@
 
 							<!--Comments Area-->
 							<div class="comments-area">
-								<!-- <div class="group-title">
-									<h4>Comments</h4>
-								</div> -->
+								
 
 								 <!-- Likes and comments -->
 								 <div class="likesAndComments">
@@ -230,32 +229,35 @@
 			
 			
 								<section class="comments">
-										<div class="container">
-											<div class="col-md-12" id="fbcomment">
-									
-												<div class="body_comment">
-													<div class="row topBox">
-														<div class="avatar_comment col-md-1" id="commentorAvatar" style="padding: 10px;">
-															
-														</div>
-														<div class="box_comment col-md-11">
-															<textarea class="commentar" placeholder="Add a comment..." id="commentBody"></textarea>
-															<div class="box_post">
-															<div class="pull-right">
-																<button  type="button" value="1" id="submitComment">Post</button>
-															</div>
-															</div>
-														</div>
-													</div>
-													
-													<ul id="list_comment" class="col-md-12">
-													   
-														
-													</ul> 
+									<div class="" id="fbcomment">
+							
+										<div class="body_comment">
+											<div class="topBox">
+												<div class="avatar_comment" id="commentorAvatar" >
 													
 												</div>
+												<div class="box_comment">
+													<textarea class="commentar" placeholder="Add a comment..." id="commentBody"></textarea>
+													<div class="box_post">
+													<div class="pull-right">
+														<button  type="button" value="1" id="submitComment">Post</button>
+													</div>
+													</div>
+												</div>
 											</div>
+
+											<div class="group-title">
+												<h4>Comments</h4>
+											</div>
+
+											<ul id="list_comment" class="col-md-12">
+												
+												
+											</ul> 
+											
 										</div>
+									</div>
+
 								</section>
 							</div>
 							
@@ -334,6 +336,40 @@
             <button type="submit" class="cancel login" onclick="goToLogin()">Login</button>        
         </div>
       </div>
+
+	<div class="popupBox" id="popupBoxComments">
+        <img src="images/icons/attention.png" alt="">
+        <p>Please Login to add comment!</p>
+        <div class="buttons">
+            <button onclick="closePopupComments()"  class="deletePost">Close</button>
+            <button type="submit" class="cancel login" onclick="goToLogin()">Login</button>        
+        </div>
+    </div>
+
+	<div class="popupBox" id="popupBoxCommentsValidation">
+        <img src="images/icons/attention.png" alt="">
+        <p>The comment field can not be empty!</p>
+        <div class="buttons">
+            <button type="submit" class="cancel login" onclick="closePopupCommentsValidation()">Ok</button>        
+        </div>
+    </div>
+
+	<div class="popupBox" id="popupBoxCommentsReplies">
+        <img src="images/icons/attention.png" alt="">
+        <p>Please Login to add a reply!</p>
+        <div class="buttons">
+            <button onclick="closePopupCommentsReplies()"  class="deletePost">Close</button>
+            <button type="submit" class="cancel login" onclick="goToLogin()">Login</button>        
+        </div>
+    </div>
+
+	<div class="popupBox" id="popupBoxCommentsRepliesValidation">
+        <img src="images/icons/attention.png" alt="">
+        <p>The reply field can not be empty!</p>
+        <div class="buttons">
+            <button type="submit" class="cancel login" onclick="closePopupCommentsRepliesValidation()">Ok</button>        
+        </div>
+    </div>
 	
 	<!-- Footer Style Two -->
     <footer class="main-footer" style="background-image: url(../images/background/map-pattern.png)">
@@ -450,6 +486,9 @@
 <!--Local scripts-->
 <script src="js/Integration/getSinglePost.js"></script>
 <script src="js/Integration/likes.js"></script>
+<script src="js/Integration/JQuerySinglePost.js"></script>
+<script src="js/Integration/comments.js"></script>
+
 
 <script src="js/jquery.js"></script>
 <script src="js/popper.min.js"></script>

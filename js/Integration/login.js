@@ -31,7 +31,7 @@ function login(){
         headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-    fetch("https://rockassociates.cyclic.app/loginUser", sendData)
+    fetch("http://localhost:5000/loginUser", sendData)
     .then(response => response.json())
     .then((fetchedData)=>{
         console.log(fetchedData)

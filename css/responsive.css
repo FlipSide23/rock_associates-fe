@@ -19,6 +19,11 @@
 	.page-wrapper{
 		overflow:hidden;	
 	}
+
+	.comments-area{
+		margin-right: 0px !important;
+		margin-left: 0px !important;
+	  }
 	
 	.header-top-one .text,
 	.main-header .header-upper .logo-box{
