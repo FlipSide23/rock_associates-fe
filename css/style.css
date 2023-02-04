@@ -114,6 +114,15 @@ p{
 	text-align: justify !important;
 }
 
+.staffItem {
+    width: 345px !important;
+    height: 506px !important;
+  }
+
+.invisibleSocialMedias{
+	display: none !important;
+}
+
 
 div.authorImageCharts{
     background: black;
@@ -6469,6 +6478,8 @@ img{
 	position:relative;
 	text-align:right;
 	padding:25px 0px 20px;
+	width: 95%;
+	margin: auto;
 }
 
 .team-block-two .inner-box .lower-content h3{

@@ -216,27 +216,35 @@
 						<div class="contact-form">
 								
 							<!-- Contact Form -->
-							<form method="post" action="" id="contact-form">
+							<form method="post" action="" id="contactForm">
 								<div class="row clearfix">
 									
-									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-										<input type="text" name="firstname" placeholder="Name" required>
+									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
+										<input type="text" name="firstname" id="visitorFirstName" placeholder="First name" required>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
+										<input type="text" name="lastname" id="visitorLastName" placeholder="Last name" required>
 									</div>
 									
 									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-										<input type="email" name="email" placeholder="Email" required>
+										<input type="email" name="email" id="visitorEmail" placeholder="Email" required>
 									</div>
 									
 									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-										<input type="text" name="subject" placeholder="Subject" required>
+										<input type="text" name="subject" id="visitorTel" placeholder="Phone number" required>
 									</div>
 									
 									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-										<textarea class="darma" name="message" placeholder="Comment..."></textarea>
+										<textarea class="darma" name="message" id="visitorMessage" placeholder="Message..."></textarea>
+									</div>
+
+									<div class="col-lg-12 col-md-12 col-sm-12 form-group" id="contactMessage" style="font-size: 16px; color: red; font-weight: bold;">
+											
 									</div>
 									
 									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-										<button class="theme-btn submit-btn" type="submit" name="submit-form">Send now</button>
+										<button id="messageSubmit" class="theme-btn submit-btn" type="submit" name="submit-form">Send</button>
 									</div>
 									
 								</div>
@@ -244,6 +252,13 @@
 								
 						</div>
 						<!-- End Contact Form -->
+
+						<div class="popupBox" id="popupBox">
+							<img src="images/icons/successLogo.png" alt="">
+							<h2>Thank you!</h2>
+							<p>Message received successfully! We will get in touch soon!</p>
+							<button type="submit" class="cancel" onclick="closePopup()">Ok</button>
+						</div>
 						
 					</div>
 				</div>
@@ -444,6 +459,9 @@
 <script src="js/Integration/loggedInUser.js"></script>
 <script src="js/Integration/logout.js"></script>
 <script src="js/Integration/userProfilePicture.js"></script>
+
+<!--Local scripts-->
+<script src="js/Integration/contact.js"></script>
 
 
 <script src="js/jquery.js"></script>

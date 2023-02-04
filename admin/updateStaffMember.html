@@ -7,17 +7,17 @@
 	<meta name="author" content="Isna Nur Azis">
 	<meta name="keyword" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ernest Ruzindana</title>
+  <title>Rock Associates Company Ltd | Dashboard</title>
 
 
   <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
-  <script src="https://kit.fontawesome.com/557e6c8ef8.js" crossorigin="anonymous"></script>
   <!-- plugins -->
   <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
   <link rel="stylesheet" type="text/css" href="asset/css/plugins/summernote.css"/>
   <link rel="stylesheet"hidden-sm type="text/css" href="asset/css/plugins/animate.min.css"/>
   <link rel="stylesheet" type="text/css" href="asset/css/plugins/simple-line-icons.css"/>
   <link href="asset/css/style.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/557e6c8ef8.js" crossorigin="anonymous"></script>
   <!-- end: Css -->
   <link rel="icon" href="../images/Logo.png" type="image/x-icon">
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,18 +28,7 @@
 </head>
 
 <body id="mimin" class="dashboard">
-  <!-- <div id="viewAllPosts_preloader"></div>
-  <script src="./asset/js/preloaders/viewAllPosts.js"></script> -->
 
-  <div class="popupBox" id="popupBox">
-    <img src="../images/attention.png" alt="">
-    <h2>Confirm!</h2>
-    <p id="accessDeniedText">Are you sure you want to delete this post? This process is irreversible!</p>
-    <div class="buttons">
-        <button type="submit" class="cancel" onclick="closePopup()">Cancel</button>
-        <button onclick="deletePost()"  class="deletePost">Delete post</button>
-    </div>
-</div>
  <!-- start: Header -->
  <nav class="navbar navbar-default header navbar-fixed-top" style="background-color: #414A4C;">
   <div class="col-md-12 nav-wrapper">
@@ -50,7 +39,7 @@
         <span class="bottom"></span>
       </div>
         <a href="../index" class="navbar-brand"> 
-         <b>Ernest Ruzindana</b>
+         <b>Rock Associates Company Ltd</b>
         </a>
 
       <ul class="nav navbar-nav search-nav">
@@ -179,15 +168,34 @@
           </div>                    
         </div>
 
-        <section class="Blog">
-            <div class="myBlogContent">
-                
-    
-                <div id="updateDeletePost" style="font-family: calibri; text-align: justify;"></div>
-            
-            </div>
-        </section>
+<div class="createPost">
+    <h3>Update Staff Member</h3>
+    <form action="">
 
+        <label for="">Image</label>
+        <img src="" id="staffMemberImage" alt="" width="150px">
+        <input type="file" id="image" name="postImage">
+
+        <label for="">Names:</label>
+        <input type="text" placeholder="Write a name here" id="names" name="title">
+
+        <label for="">Position:</label>
+        <input type="text" placeholder="Write the position here" id="position" name="title">
+
+        <label for="">Facebook profile (Optional):</label>
+        <input type="text" placeholder="Write the facebook profile link here" id="facebookProfile" name="title">
+
+        <label for="">Linkedin profile (Optional):</label>
+        <input type="text" placeholder="Write the linkedin profile link title here" id="linkedinProfile" name="title">
+
+        <label for="">Twitter profile (Optional):</label>
+        <input type="text" style="margin-bottom: 30px;" placeholder="Write the twitter profile link here" id="twitterProfile" name="title">
+          
+        <div class="postMessage" id="updateStaffMessage"></div>
+
+        <input type="submit"  id="updateMember" value="Update member">
+    </form>
+</div>
 
 
 
@@ -198,7 +206,6 @@
 <script src="asset/js/jquery.min.js"></script>
 <script src="asset/js/jquery.ui.min.js"></script>
 <script src="asset/js/bootstrap.min.js"></script>
-<script src="../JS/createPost.js"></script>
 
 
 <!-- plugins -->
@@ -208,11 +215,8 @@
 
 <!-- Integration scripts -->
 <script src="asset/js/Integration/loggedInUser.js"></script>
-<script src="asset/js/Integration/update_delete_post.js"></script>
-<script src="asset/js/Integration/singleBlogPost.js"></script>
-<script src="asset/js/Integration/updatePost.js"></script>
-<script src="asset/js/Integration/deletePost.js"></script>
 <script src="asset/js/Integration/protectAdmin.js"></script>
+<script src="asset/js/Integration/updateStaffMember.js"></script>
 
 
 <!-- custom -->

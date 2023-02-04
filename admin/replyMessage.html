@@ -30,8 +30,8 @@
   </head>
 
  <body id="mimin" class="dashboard">
-  <div id="replyMessages_preloader"></div>
-  <script src="./asset/js/preloaders/replyMessage.js"></script>
+  <!-- <div id="replyMessages_preloader"></div>
+  <script src="./asset/js/preloaders/replyMessage.js"></script> -->
        <!-- start: Header -->
        <nav class="navbar navbar-default header navbar-fixed-top" style="background-color: #414A4C;">
         <div class="col-md-12 nav-wrapper">
@@ -182,7 +182,7 @@
                 
                 <div class="col-md-6" style="width: 100%; margin: auto;">
                     <div class="panel box-v1">
-                        <div style="font-size: 16px; text-align: center; color: #cba10a; text-decoration: underline; font-weight: bold; 
+                        <div style="font-size: 16px; text-align: center; color: #3aaf47; text-decoration: underline; font-weight: bold; 
                         padding-top: 15px;
                         ">Sender Info</div>
                             <div class="panel-body text-center" style=" font-size: 15px; margin-top: -30px; padding-bottom: 20px;">
@@ -190,7 +190,7 @@
                            <span style="text-decoration: underline;">Email</span>: <span id="senderEmailInfo"></span> </br> 
                            <span style="text-decoration: underline;">Phone Number</span>: <span id="senderPhone"></span> </br>
                            </div>
-                           <div style="font-size: 16px; text-align: center; color: #cba10a; text-decoration: underline; font-weight: bold; 
+                           <div style="font-size: 16px; text-align: center; color: #3aaf47; text-decoration: underline; font-weight: bold; 
                            padding-top: 15px; border-top: 5px solid #f0f3f4;
                            ">Sender Message</div>
             
@@ -221,6 +221,13 @@
                         
                         </div>
                 </div>
+                </div>
+
+                <div class="popupBox" id="popupBox">
+                  <img src="../images/icons/successLogo.png" alt="">
+                  <h2>Success!</h2>
+                  <p>Message sent successfully!</p>
+                  <button type="submit" class="cancel" onclick="closePopup()">Ok</button>
                 </div>
         
 

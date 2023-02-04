@@ -1,5 +1,6 @@
 //popup
 const popupBox = document.getElementById("popupBox")
+const accessDeniedText = document.getElementById("accessDeniedText")
 let postIdDeletion;
 
 function openPopup(post_id){
@@ -14,18 +15,22 @@ function closePopup(){
 
  
 async function deletePost(){
-    document.title = "Loading..."
     const getData = {
         method: "DELETE",
-        headers: {"auth_token": JSON.parse(sessionStorage.getItem("token"))}
+        headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
     
-    let response = await fetch("https://ernestruzindana-be.cyclic.app/deletePost/"+postIdDeletion, getData)
+    let response = await fetch("http://localhost:5000/deletePost/"+postIdDeletion, getData)
     const fetchedData = await response.json()
     console.log(fetchedData)
 
     if (fetchedData.deletedPost){
-      location = "viewAllPosts"   
+      location = "viewAllPosts.html"   
+    }
+
+    else if (fetchedData.unauthorizedError){
+        accessDeniedText.innerHTML = fetchedData.unauthorizedError;
+        setTimeout(()=>{location = "viewAllPosts.html"}, 2500)   
     }
 }
 

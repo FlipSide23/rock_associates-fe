@@ -1,51 +1,20 @@
-async function getSinglePost(post_id){
-    document.title = "Loading..."
-    const getData = {
-        method: "GET",
-        headers: {"auth_token": JSON.parse(sessionStorage.getItem("token"))}
-    }
-    
-    let response = await fetch("https://ernestruzindana-be.cyclic.app/getSinglePost/"+post_id, getData)
-    const fetchedData = await response.json()
-    console.log(fetchedData)
-
-    if (fetchedData.fetchedPost){
-        localStorage.setItem("post_id", fetchedData.fetchedPost._id)
-        localStorage.setItem("postBody", fetchedData.fetchedPost.postBody)
-        location = "updatePost"
-    }
-}
-
-
-
-// Getting a post
-
-function hideupdatePostLoader(){
-    updatePost_preloader.classList.remove("show")
-}
-
-
-const post_id = localStorage.getItem("post_id")
+const url = new URL(window.location.href);
+const slug = url.searchParams.get('slug');   
 
 async function getPostDetails(){
     const getData = {
         method: "GET",
-        headers: {"auth_token": JSON.parse(sessionStorage.getItem("token"))}
+        headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
     
-    let response = await fetch("https://ernestruzindana-be.cyclic.app/getSinglePost/"+post_id, getData)
+    let response = await fetch(`http://localhost:5000/getSinglePost?slug=${slug}`, getData)
     console.log(response)
-    const fetchedData = await response.json()
-    hideupdatePostLoader()
-    document.title = "Rock Associates Company Ltd | Dashboard"
+    const fetchedData = await response.json() 
 
     const singlePost = fetchedData.fetchedPost
 
     const updatePostImage = document.getElementById("updatePostImage")
     updatePostImage.src = singlePost.postImage
-    
-    const updateHeaderImage = document.getElementById("updateHeaderImage")
-    updateHeaderImage.src = singlePost.headerImage
 
     const postTitleDetails = document.getElementById("postTitleDetails")
     postTitleDetails.value = singlePost.title
@@ -71,7 +40,7 @@ submitBlog.addEventListener("click", (event) =>{
     event.preventDefault();
     blogMessage.style.display = "block"
 
-    blogMessage.innerHTML = `<img src="../images/Spinner.gif" alt="Loading..." width="50px" height="50px">`
+    blogMessage.innerHTML = `<img src="../images/icons/Spinner.gif" alt="Loading..." width="50px" height="50px">`
 
     UpdatePost();
 });
@@ -79,7 +48,6 @@ submitBlog.addEventListener("click", (event) =>{
 
 function UpdatePost(){
     const postImage = document.getElementById("postImage");
-    const headerImage = document.getElementById("headerImage");
     const postTitleDetails = document.getElementById("postTitleDetails");
     const summernote = document.getElementById("updatePost");
     
@@ -90,37 +58,25 @@ function UpdatePost(){
         return;
       }
 
-      if (!headerImage.files[0]) {
-        blogMessage.style.color = "red"
-        blogMessage.innerHTML = "Please add a new header image or confirm the previous one to be able to edit a post!"
-        return;
-    }
-
     const reader =  new FileReader();
      reader.readAsDataURL(postImage.files[0])
      reader.addEventListener("load",()=>{
         const finalPostImage = reader.result
 
-    const reader2 =  new FileReader();
-     reader2.readAsDataURL(headerImage.files[0])
-     reader2.addEventListener("load",()=>{
-        const finalHeaderImage = reader2.result
-
     const data = {
         title: postTitleDetails.value, 
         postBody: summernote.innerHTML,
-        postImage: finalPostImage,
-        headerImage: finalHeaderImage,
+        postImage: finalPostImage
     }
         
 
     const sendData = {  
         method: "PUT",
         body: JSON.stringify(data),
-        headers: new Headers({"auth_token": JSON.parse(sessionStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
+        headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("https://ernestruzindana-be.cyclic.app/updatePost/"+post_id, sendData)
+fetch(`http://localhost:5000/updatePost?slug=${slug}`, sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)
@@ -132,11 +88,12 @@ fetch("https://ernestruzindana-be.cyclic.app/updatePost/"+post_id, sendData)
         const updatePostImage = document.getElementById("updatePostImage");
         updatePostImage.src = fetchedData.updatedPost.postImage
 
+        setTimeout(()=>{location = "viewAllPosts.html"}, 2000)
+    }
 
-        const updateHeaderImage = document.getElementById("updateHeaderImage");
-        updateHeaderImage.src = fetchedData.updatedPost.headerImage
-
-        setTimeout(()=>{location = "viewAllPosts"}, 2000)
+    else if(fetchedData.unauthorizedError){
+        blogMessage.style.color = "red"
+        blogMessage.innerHTML = fetchedData.unauthorizedError
     }
 
     else if(fetchedData.postUpdateError){
@@ -146,11 +103,11 @@ fetch("https://ernestruzindana-be.cyclic.app/updatePost/"+post_id, sendData)
 
     else{
         blogMessage.style.color = "red"
-        blogMessage.innerHTML = fetchedData.message 
+        blogMessage.innerHTML = "Something went wrong, we were unable to update this post!"
     }
   
       })
-    })
+
   })
 }
 

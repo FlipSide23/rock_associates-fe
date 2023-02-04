@@ -1,4 +1,4 @@
-// Creating a post
+// Add a staff member
 
 const submitRequest = document.getElementById("submitRequest");
 const addStaffMessage = document.getElementById("addStaffMessage");
@@ -19,6 +19,9 @@ async function addMember(){
     const image = document.getElementById("image");
     const position = document.getElementById("position");
     const names = document.getElementById("names");
+    const facebookProfile = document.getElementById("facebookProfile");
+    const linkedinProfile = document.getElementById("linkedinProfile");
+    const twitterProfile = document.getElementById("twitterProfile");
 
     if (!image.files[0]) {
         addStaffMessage.style.color = "red"
@@ -34,6 +37,9 @@ async function addMember(){
     const data = {
         position: position.value, 
         name: names.value,
+        facebookProfile: facebookProfile.value,
+        linkedlinProfile: linkedinProfile.value,
+        twitterProfile: twitterProfile.value,
         image: finalImage,
     }    
 
@@ -43,7 +49,7 @@ async function addMember(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("https://rockassociates.cyclic.app/addMember", sendData)
+fetch("http://localhost:5000/addMember", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)
@@ -51,7 +57,7 @@ fetch("https://rockassociates.cyclic.app/addMember", sendData)
     if (fetchedData.successMessage){
         addStaffMessage.style.color = "green"
         addStaffMessage.innerHTML = fetchedData.successMessage
-        // location = "viewAllPosts.html"
+        setTimeout(()=>{location = "manageStaff.html"}, 2000)
     }
 
     else if (fetchedData.validationError){

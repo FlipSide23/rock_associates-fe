@@ -44,7 +44,7 @@ async function createPost(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("https://rockassociates.cyclic.app/createPost", sendData)
+fetch("http://localhost:5000/createPost", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)
@@ -52,7 +52,7 @@ fetch("https://rockassociates.cyclic.app/createPost", sendData)
     if (fetchedData.successMessage){
         postMessages.style.color = "green"
         postMessages.innerHTML = fetchedData.successMessage
-        // location = "viewAllPosts.html"
+        location = "viewAllPosts.html"
     }
 
     else if (fetchedData.validationError){

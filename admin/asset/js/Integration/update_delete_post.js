@@ -1,17 +1,15 @@
 
-function hideviewAllPostsLoader(){
-    viewAllPosts_preloader.classList.remove("show")
-}
+
 
 async function update_delete_post(){
     const getData = {
         method: "GET",
-        headers: {"auth_token": JSON.parse(sessionStorage.getItem("token"))}
+        headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("https://ernestruzindana-be.cyclic.app/getAllPosts", getData)
+    let response = await fetch("http://localhost:5000/getAllPosts?perPage=1000000", getData)
     const fetchedData = await response.json()
-    hideviewAllPostsLoader()
+
     document.title = "Rock Associates Company Ltd | Dashboard"
     const posts = fetchedData.allAvailablePosts;
 
@@ -21,14 +19,14 @@ async function update_delete_post(){
         const title = postArray.title;
         const body = postArray.postBody.slice(0, 600)+"...";
         const image = postArray.postImage;
+        const slug = postArray.slug;
         const post_id = postArray._id;
-        const date = postArray.dateCreated
-        const authorName = postArray.authorName
-        const authorImage = postArray.authorImage 
+        const date = postArray.createdAt
+        const authorName = postArray.postCreator.firstName+' '+postArray.postCreator.lastName
+        const authorImage = postArray.postCreator.imageLink 
 
-        const str = "https" || "http"
         var authorImageTemplate;
-        if(authorImage.includes(str)){
+        if(authorImage){
            authorImageTemplate = 
            `<img src="${authorImage}" alt="" class="AuthorImage" id="authorProfilePicture">`
         }
@@ -36,11 +34,9 @@ async function update_delete_post(){
         else{
             authorImageTemplate = 
            ` <div class="authorImageCharts" id="authorImageCharts">
-           ${authorImage}
+              ${postArray.postCreator.firstName.charAt(0)+postArray.postCreator.lastName.charAt(0)}
            </div>`
         }
-
-
 
         const updateDeletePost = document.getElementById("updateDeletePost");
         
@@ -63,7 +59,7 @@ async function update_delete_post(){
 
                         
                         
-                        <button onclick="getSinglePost('${post_id}')" style="background: #cba10a; border-color: #cba10a; color: white; font-weight: bold;">Update post</button> &nbsp;
+                        <button style="background: #cba10a; border-color: #cba10a; color: white; font-weight: bold;"><a href="updatePost.html?slug=${slug}">Update post</a></button> &nbsp;
                         <button  style="background: #ff6b6b;  border-color: #ff6b6b; color: white; font-weight: bold;" onclick="openPopup('${post_id}')">Delete post</button>
                     </div>
                 </div>

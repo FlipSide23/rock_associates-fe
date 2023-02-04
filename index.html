@@ -1667,86 +1667,6 @@
 
 				<div class="three-item-carousel owl-carousel owl-theme" id="staffContainer">
 
-					<!-- Team Block -->
-					<div class="team-block">
-						<div class="inner-box">
-							<div class="image">
-								<img src="../images/team/team1.png" alt="" />
-								<ul class="social-box">
-									<li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
-									<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-									<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-									<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-								</ul>
-							</div>
-							<div class="lower-box">
-								<div class="designation">Country representative & Managing Director</div>
-								<h3><a href="">Leobard BANWAMANA, PhD</a></h3>
-							</div>
-						</div>
-					</div>
-
-					<!-- Team Block -->
-					<div class="team-block">
-						<div class="inner-box">
-							<div class="image">
-								<img src="../images/team/team2.png" alt="" />
-								<ul class="social-box">
-									<li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
-									<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-									<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-									<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-								</ul>
-							</div>
-							<div class="lower-box">
-								<div class="designation">Technical Assistant & Deputy Team Leader</div>
-								<h3><a href="">Denys HATEGEKIMANA, PhD</a></h3>
-							</div>
-						</div>
-					</div>
-
-					<!-- Team Block -->
-					<div class="team-block">
-						<div class="inner-box">
-							<div class="image">
-								<img src="../images/team/team3.png" alt="" />
-								<ul class="social-box">
-									<li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
-									<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-									<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-									<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-								</ul>
-							</div>
-							<div class="lower-box">
-								<div class="designation">Urban Planner & GIS Expert</div>
-								<h3><a href="price.html">Janvier NAYITURIKI</a></h3>
-							</div>
-						</div>
-					</div>
-
-					<!-- Team Block -->
-					<div class="team-block">
-						<div class="inner-box">
-							<div class="image">
-								<img src="../images/team/team4.png" alt="" />
-								<ul class="social-box">
-									<li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
-									<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-									<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-									<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-								</ul>
-							</div>
-							<div class="lower-box">
-								<div class="designation">Urban Planner & GIS Expert</div>
-								<h3><a href="price.html">Boaz MWUBAHIMANA</a></h3>
-							</div>
-						</div>
-					</div>
-
 				</div>
 
 			</div>
@@ -1911,31 +1831,35 @@
 
 							<!--Default Form-->
 							<div class="default-form">
-								<form method="post" action="">
+								<form method="post" action="" id="contactForm">
 									<div class="row clearfix">
 
 										<div class="form-group col-md-6 col-sm-6 col-xs-12">
-											<input type="text" name="username" value="" placeholder="First name" required>
+											<input type="text" name="username" id="visitorFirstName" value="" placeholder="First name" required>
 										</div>
 
 										<div class="form-group col-md-6 col-sm-6 col-xs-12">
-											<input type="text" name="username" value="" placeholder="Last name" required>
+											<input type="text" name="username" id="visitorLastName" value="" placeholder="Last name" required>
 										</div>
 
 										<div class="form-group col-md-6 col-sm-6 col-xs-12">
-											<input type="email" name="email" value="" placeholder="Email" required>
+											<input type="email" name="email" id="visitorEmail" value="" placeholder="Email" required>
 										</div>
 
 										<div class="form-group col-md-6 col-sm-6 col-xs-12">
-											<input type="text" name="phone" value="" placeholder="Phone number" required>
+											<input type="text" name="phone" value="" id="visitorTel" placeholder="Phone number" required>
 										</div>
 
 										<div class="form-group col-md-12 col-sm-12 col-xs-12">
-											<textarea name="message" placeholder="Message... "></textarea>
+											<textarea name="message" id="visitorMessage" placeholder="Message... "></textarea>
+										</div>
+
+										<div class="form-group col-md-12 col-sm-12 col-xs-12" id="contactMessage" style="text-align: center; font-size: 16px; color: red; font-weight: bold;">
+											
 										</div>
 
 										<div class="form-group text-center btn-column col-md-12 col-sm-12 col-xs-12">
-											<button type="submit" class="theme-btn btn-style-two"><span
+											<button type="submit" id="messageSubmit" class="theme-btn btn-style-two"><span
 													class="txt">Send</span></button>
 										</div>
 
@@ -1951,6 +1875,21 @@
 			</div>
 		</section>
 		<!-- End Tesimonial Section Two -->
+
+		<div class="popupBox" id="popupBox">
+			<img src="images/icons/successLogo.png" alt="">
+			<h2>Thank you!</h2>
+			<p>Message received successfully! We will get in touch soon!</p>
+			<button type="submit" class="cancel" onclick="closePopup()">Ok</button>
+		</div>
+
+		<!-- popup box -->
+		<div class="popupBox" id="popupBoxSubscription">
+			<img src="images/icons/successLogo.png" alt="">
+			<h2>Done!</h2>
+			<p>Thank you for subscribing on our News Letter! To receive our updates go to your email to verify this email address!</p>
+			<button type="submit" class="cancel" onclick="closePopupSubscripiton()">Ok</button>
+		</div>
 
 		<!--Clients Section-->
 		<section class="clients-section style-two">
@@ -2105,9 +2044,11 @@
     <script src="js/Integration/loggedInUser.js"></script>
     <script src="js/Integration/logout.js"></script>
     <script src="js/Integration/userProfilePicture.js"></script>
-    <!-- <script src="js/Integration/editUI/getAllStaff.js"></script> -->
+
 
 	<!--Local scripts-->
+	<script src="js/Integration/editUI/getAllStaff.js"></script>
+	<script src="js/Integration/contactHomePage.js"></script>
 
 
 	<script src="../js/jquery.js"></script>
