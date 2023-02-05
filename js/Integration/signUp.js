@@ -1,3 +1,7 @@
+const tokenAvailable = JSON.parse(localStorage.getItem("token"))
+if (tokenAvailable){
+    location = "index.html"
+}
 
 const signupForm = document.getElementById("signupForm");
 

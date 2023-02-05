@@ -131,6 +131,13 @@ body {
   height: 400px;
 }
 
+.aboutBody{
+  width: 100%;
+  outline: none;
+  resize: none;
+  height: 300px;
+}
+
 .loadingDotsReadmore{
   display: none;
 }

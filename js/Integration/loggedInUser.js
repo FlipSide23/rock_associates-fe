@@ -64,7 +64,7 @@ async function loggedInUser(){
                 <i class="fas fa-chalkboard-teacher"></i> </nbsp> Admin Panel
                 </p>
                 <p class="switchAccountLink" id="contactUs">
-                <i class="far fa-envelope-open"></i> </nbsp> Contact Me
+                <i class="far fa-envelope-open"></i> </nbsp> Contact Us
                 </p>
           </div>
 
