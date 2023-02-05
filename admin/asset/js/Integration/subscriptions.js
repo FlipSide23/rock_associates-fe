@@ -23,12 +23,12 @@ let deleteSubscriber= async() => {
         method: 'DELETE',
         headers: {
         
-         'auth-token': JSON.parse(sessionStorage.getItem('token'))
+         'auth-token': JSON.parse(localStorage.getItem('token'))
      
        },
     }
 
-    let response = await fetch('https://ernestruzindana-be.cyclic.app/deleteSubscriber/'+subscriberIdDeletion, deleteOptions)
+    let response = await fetch('http://localhost:5000/deleteSubscriber/'+subscriberIdDeletion, deleteOptions)
     const fetchDeletedPost = await response.json();
     console.log(fetchDeletedPost)
         if(fetchDeletedPost.removedMessage){ 
@@ -50,7 +50,7 @@ function hideSubscriptionsLoader(){
 
 async function fetchSubscribers(){
         
-    let response = await fetch("https://ernestruzindana-be.cyclic.app/getAllSubscriptions")
+    let response = await fetch("http://localhost:5000/getAllSubscriptions")
     
     const allResults = await response.json(); 
     const results = allResults.subscribers;
@@ -80,7 +80,7 @@ async function fetchSubscribers(){
     
         <div class="col-md-6" id="${resultId}">
             <div class="panel box-v1">
-               <div style="font-size: 16px; text-align: center; color: #cba10a; text-decoration: underline; font-weight: bold; 
+               <div style="font-size: 16px; text-align: center; color: purple; text-decoration: underline; font-weight: bold; 
                padding-top: 15px; border-top: 5px solid #f0f3f4;
                ">Subscriber Email</div>
 
@@ -94,7 +94,7 @@ async function fetchSubscribers(){
                 <div class="deleteMessage" style="font-size: 13px; color: #EE4B2B; font-weight: bold; text-align: center; margin: auto; width: 65%; border-top: 5px solid #f0f3f4; border-left: 5px solid #f0f3f4; padding-bottom: 5px; padding-top: 5px;" id= '${resultId}' onclick="openPopupSubscriptions('${resultId}')">
                 Remove from Subscribers
                 </div>
-                <div class="deleteMessage" style="font-size: 13px; color: #cba10a; text-align: center; margin: auto; font-weight: bold; width: 35%; border-top: 5px solid #f0f3f4; padding-bottom: 5px; padding-top: 5px;" id= '${resultId}' onclick="copyContent('${subscriberEmail}')">
+                <div class="deleteMessage" style="font-size: 13px; color: purple; text-align: center; margin: auto; font-weight: bold; width: 35%; border-top: 5px solid #f0f3f4; padding-bottom: 5px; padding-top: 5px;" id= '${resultId}' onclick="copyContent('${subscriberEmail}')">
                  Copy Email
                 </div>
             </div>

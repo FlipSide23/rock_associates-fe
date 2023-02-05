@@ -1,8 +1,7 @@
 // Updating user profile
-
+let globalPreloader = document.getElementById("globalPreloaderIndex");
 function UpdateUserProfile(){
     const file = document.getElementById("file"); 
-    let globalPreloader = document.getElementById("globalPreloaderIndex"); 
     globalPreloader.classList.add("open-globalPreloader")  
 
     const reader =  new FileReader();
@@ -11,7 +10,8 @@ function UpdateUserProfile(){
     const finalUserImage = reader.result
 
     const data = {
-      imageLink: finalUserImage
+      imageLink: finalUserImage,
+      ImagePresent: true
     }
 
     const sendData = {  
@@ -37,10 +37,16 @@ fetch("http://localhost:5000/updateProfilePicture", sendData)
 
 
 async function deleteUserProfilePicture(){
+    globalPreloader.classList.add("open-globalPreloader")
+    const data = {
+        imageLink: "https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg",
+        ImagePresent: false
+    }
 
     const sendData = {  
-        method: "PUT",
-        headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token"))})
+        method: "DELETE",
+        body: JSON.stringify(data),
+        headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
 fetch("http://localhost:5000/deleteProfilePicture", sendData)
@@ -49,7 +55,7 @@ fetch("http://localhost:5000/deleteProfilePicture", sendData)
     console.log(fetchedData)
 
     if (fetchedData.successMessage){
-        // history.go(0)
+        history.go(0)
     }
 })
 

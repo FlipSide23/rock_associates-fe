@@ -7,10 +7,10 @@ const loginMessage = document.getElementById("loginMessage");
 
 loginMessage.style.display = "none"
 
-// const MyToken = JSON.parse(sessionStorage.getItem("token"))
-// if (MyToken){
-//     location = "../index"
-// }
+const MyToken = JSON.parse(localStorage.getItem("token"))
+if (MyToken){
+    location = "index.html"
+}
 
 submit.addEventListener("click", (event)=>{
     event.preventDefault();

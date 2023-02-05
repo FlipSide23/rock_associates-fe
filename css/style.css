@@ -193,6 +193,23 @@ div.userProfile{
 	
 }
 
+div.userProfileSticy{
+	position: fixed;
+	background: url(../images/background/14.jpg);
+	box-shadow: 0px 0px 20px;
+	border-radius: 10px;
+	z-index: 3;
+	top: 55px;
+	right: 100px;
+	margin: 10px auto auto auto;
+	text-align: center;
+	padding-top: 20px;
+	color: white;
+	width: 320px;
+	height: auto !important;
+	
+}
+
 a.ManageAccountLink{
 	text-decoration: none;
 	padding: 5px 38px 5px 38px;

@@ -124,6 +124,13 @@ body {
 
 /* Loading Dots */
 
+.emailBody{
+  width: 100%;
+  outline: none;
+  resize: none;
+  height: 400px;
+}
+
 .loadingDotsReadmore{
   display: none;
 }
@@ -171,7 +178,7 @@ audio {
 
 code {text-align: left !important;}
 
-input[type='text'] {
+input[type='text'], textarea {
   border: 1px solid #ddd;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;

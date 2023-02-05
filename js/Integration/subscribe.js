@@ -3,14 +3,12 @@ const submitSubscription = document.getElementById("submitSubscription");
 const subscriberEmail = document.getElementById("subscriberEmail");
 const subscriberForm = document.getElementById("subscriberForm");
 const popupBoxSubscription = document.getElementById("popupBoxSubscription")
-const subscriptionMessage = document.getElementById("subscriptionMessage");
-subscriptionMessage.style.display = "none";
+const subscriptionStatus = document.getElementById("subscriptionStatus")
+const subscriptionErrorMessage = document.getElementById("subscriptionErrorMessage")
 
 submitSubscription.addEventListener("click", (event) =>{
-    event.preventDefault();
-    subscriptionMessage.style.display = "block";   
-    subscriptionMessage.innerHTML = `<img src="../images/Spinner.gif" alt="Loading..." width="50px" height="50px">`
-    document.title = "Loading..."
+    event.preventDefault();   
+    submitSubscription.innerHTML = `<img src="../images/icons/Spinner.gif" alt="Loading..." width="20px" height="20px">`   
     subscription();
 });
 
@@ -27,27 +25,36 @@ function subscription(){
         headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("https://ernestruzindana-be.cyclic.app/Subscribe", sendData)
+fetch("http://localhost:5000/Subscribe", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)
 
     if (fetchedData.successMessage){
-        subscriptionMessage.style.display = "none";
         popupBoxSubscription.classList.add("open-popup")
-        document.title = "Ernest Ruzindana"
+        subscriptionStatus.style.color = "black"
+        subscriptionErrorMessage.style.color = "black"
+        subscriptionStatus.innerHTML = "Done!"
+        subscriptionErrorMessage.innerHTML = "Thank you for subscribing on our News Letter! To receive our updates go to your email to verify this email address!"
+        submitSubscription.innerHTML= "Subscribe"
     }
 
     else if (fetchedData.validationError){
-        subscriptionMessage.style.color = "red"
-        subscriptionMessage.innerHTML = fetchedData.validationError
-        document.title = "Ernest Ruzindana"
+        popupBoxSubscription.classList.add("open-popup")
+        subscriptionStatus.style.color = "red"
+        subscriptionErrorMessage.style.color = "red"
+        subscriptionStatus.innerHTML = "Fail!"
+        subscriptionErrorMessage.innerHTML = fetchedData.validationError
+        submitSubscription.innerHTML= "Subscribe"
     }
 
     else {
-        subscriptionMessage.style.color = "red"
-        subscriptionMessage.innerHTML = fetchedData.errorMessage
-        document.title = "Ernest Ruzindana"
+        popupBoxSubscription.classList.add("open-popup")
+        subscriptionStatus.style.color = "red"
+        subscriptionErrorMessage.style.color = "red"
+        subscriptionStatus.innerHTML = "Fail!"
+        subscriptionErrorMessage.innerHTML = "Something went wrong, we were unable to process this request!"
+        submitSubscription.innerHTML= "Subscribe"
     }
 })
 

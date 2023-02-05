@@ -117,16 +117,15 @@ async function loggedInUser(){
             }
             })
 
-        // hidding and showing the image profile in the top right corner
-
+        // hidding and showing the image profile in the top right corner 
+        console.log(!fetchedData.loggedInUser.ImagePresent)
         if (fetchedData.loggedInUser.imageLink) {
             UserProfilePicture.style.display = "none"
             profileImageLink.src = fetchedData.loggedInUser.imageLink
             profilePicRight.style.display = "none"
-            removeImage.style.display = "block"
             profilePic.style.marginBottom = "0px"
         }
-        
+
         else{
             topProfileImage.style.display = "none"
             profileImageLink.style.display = "none"
@@ -151,6 +150,10 @@ async function loggedInUser(){
         UserProfile.style.display = "none"
         })
 
+     // Show and hide delete image button
+        if (fetchedData.loggedInUser.imageLink && fetchedData.loggedInUser.ImagePresent) {
+            removeImage.style.display = "block"
+        }
 
 
 }

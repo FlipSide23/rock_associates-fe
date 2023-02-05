@@ -155,8 +155,8 @@
 
 						<div class="outer-box clearfix">
 							<div class="btn-box">
-								<!-- <div id="addProfile" class="addProfile theme-btn"></div> -->
-								<a href="login.html" class="quote-btnSticky theme-btn">Login / SignUp</a>
+								<div id="addProfileSticky" class="addProfile theme-btn"></div>
+								<a href="login.html" id="preNavLoginSticky" class="quote-btnSticky theme-btn">Login / SignUp</a>
 							</div>
 
 						</div>
@@ -1886,8 +1886,8 @@
 		<!-- popup box -->
 		<div class="popupBox" id="popupBoxSubscription">
 			<img src="images/icons/successLogo.png" alt="">
-			<h2>Done!</h2>
-			<p>Thank you for subscribing on our News Letter! To receive our updates go to your email to verify this email address!</p>
+			<h2 id="subscriptionStatus">Done!</h2>
+			<p id="subscriptionErrorMessage">Thank you for subscribing on our News Letter! To receive our updates go to your email to verify this email address!</p>
 			<button type="submit" class="cancel" onclick="closePopupSubscripiton()">Ok</button>
 		</div>
 
@@ -1985,11 +1985,11 @@
 								<div class="text">You can get latest update from us by Subscribing to our News Letter
 								</div>
 								<div class="newsletter-form">
-									<form method="post" action="">
+									<form method="post" action="" id="subscriberForm">
 										<div class="form-group">
-											<input type="email" name="email" value="" placeholder="Your Email Address"
+											<input type="email" id="subscriberEmail" name="email" value="" placeholder="Your Email Address"
 												required="">
-											<button type="submit" class="theme-btn submit-btn"><span
+											<button type="submit" id="submitSubscription" class="theme-btn submit-btn"><span
 													class="txt">Subscribe</span></button>
 										</div>
 									</form>
@@ -2042,8 +2042,10 @@
 
 	<!--Global scripts-->
     <script src="js/Integration/loggedInUser.js"></script>
+    <script src="js/Integration/stickyLoggedInUser.js"></script>
     <script src="js/Integration/logout.js"></script>
     <script src="js/Integration/userProfilePicture.js"></script>
+    <script src="js/Integration/subscribe.js"></script>
 
 
 	<!--Local scripts-->
