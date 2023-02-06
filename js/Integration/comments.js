@@ -249,8 +249,10 @@ async function getAllComments(){
                       ${replyTemplate}
                     </ul>
                 </div>
-                
+                 
             </div>
+            
+            
         </li>
         `
 
@@ -351,3 +353,10 @@ fetch("http://localhost:5000/commentReply/"+commentId, sendData)
 function refreshPage(){
     location.reload()
 }
+
+
+// Edit comments
+// <div class="comment-actions">
+//     <button class="edit-button"><i class="fas fa-edit"></i></button>
+//     <button class="delete-button"><i class="fas fa-trash"></i></button>
+// </div> 

@@ -1,3 +1,7 @@
+const tokenAvailable = JSON.parse(localStorage.getItem("token"))
+if (tokenAvailable){
+    location = "index.html"
+}
 
 const forgotPasswordForm = document.getElementById("forgotPasswordForm");
 
@@ -46,7 +50,7 @@ fetch("http://localhost:5000/forgotPassword", sendData)
         forgotPasswordMessage.style.color = "green"
         forgotPasswordMessage.innerHTML = forgotPasswordFetchedData.resetSuccess
         forgotPasswordSubmitData.innerHTML= "Reset Password"
-        localStorage.setItem("token", JSON.stringify(forgotPasswordFetchedData.forgotPasswordResetToken))
+        localStorage.setItem("forgotPasswordToken", JSON.stringify(forgotPasswordFetchedData.resetPasswordToken))
 
         setTimeout(()=>{forgotPasswordForm.reset()}, 2000)
     }
@@ -68,7 +72,7 @@ fetch("http://localhost:5000/forgotPassword", sendData)
     else {
         forgotPasswordMessage.style.display = "block";   
         forgotPasswordMessage.style.color = "red"
-        forgotPasswordMessage.innerHTML = forgotPasswordFetchedData.errorMessage
+        forgotPasswordMessage.innerHTML = "Something went wrong, we were unable to reset your password!"
         forgotPasswordSubmitData.innerHTML= "Reset Password"
     }
 })
