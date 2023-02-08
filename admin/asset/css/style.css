@@ -138,6 +138,19 @@ body {
   height: 300px;
 }
 
+.serviceBody{
+  width: 100%;
+  outline: none;
+  resize: none;
+  height: 150px;
+}
+
+.projectCategoryBody{
+  width: 100%;
+  outline: none;
+  resize: none;
+}
+
 .loadingDotsReadmore{
   display: none;
 }
@@ -185,7 +198,7 @@ audio {
 
 code {text-align: left !important;}
 
-input[type='text'], textarea {
+input[type='text'], textarea, select {
   border: 1px solid #ddd;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -7111,6 +7124,11 @@ div.blogBoxes{
     display: grid;
     grid-template-columns: 27% 70%;
     gap: 3%;
+    border-bottom: 1px solid rgb(131, 131, 131);
+    padding: 40px;
+}
+
+div.serviceBoxes{
     border-bottom: 1px solid rgb(131, 131, 131);
     padding: 40px;
 }

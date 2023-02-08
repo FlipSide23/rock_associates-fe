@@ -1,3 +1,4 @@
+
 (function($) {
 	
 	"use strict";
@@ -374,35 +375,7 @@
 	}
 	
 	
-	// Services Carousel
-	if ($('.services-carousel').length) {
-		$('.services-carousel').owlCarousel({
-			loop:true,
-			margin:0,
-			nav:true,
-			//autoHeight: true,
-			smartSpeed: 500,
-			autoplay: 5000,
-			navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
-			responsive:{
-				0:{
-					items:1
-				},
-				600:{
-					items:1
-				},
-				800:{
-					items:3
-				},
-				1024:{
-					items:3
-				},
-				1200:{
-					items:3
-				}
-			}
-		});    		
-	}
+	
 	
 	
 	
