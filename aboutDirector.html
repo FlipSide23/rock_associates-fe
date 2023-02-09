@@ -207,7 +207,7 @@
 									<div class="title">Quick Contact</div>
 									<h2>Let's talk</h2>
 									<div class="text">If you wish to contact me immediately, click the button below to send me an email!</div>
-									<a href="#" class="theme-btn contact-btn">Email Expert</a>
+									<a onclick="openPopupDirector()" class="theme-btn contact-btn">Email Expert</a>
 								</div>
 
 							</div>
@@ -875,6 +875,27 @@
 	</div>
 	<!--End pagewrapper-->
 
+	<!-- popup box -->
+	<div class="popupBoxResult" id="popupBoxDirector">
+		
+		<div class="emailDirector">
+			<textarea name="" id="emailBody" cols="50" placeholder="Type your message here" rows="10"></textarea>
+		</div>
+		
+		<div class="resultButtons">
+			<button type="submit" class="closeResult" onclick="closePopupDirector()">Close</button>
+			<button type="submit" class="cancel" id="sendEmailToDirector">Send Email</button>
+		</div>
+		
+	</div>
+
+	<div class="popupBox" id="popupBoxSuccess">
+		<img src="images/icons/successLogo.png" alt="">
+		<h2>Thank you!</h2>
+		<p>Message received successfully! I will get in touch soon!</p>
+		<button type="submit" class="cancel" onclick="closePopupSuccess()">Ok</button>
+	</div>
+
 	<!--Search Popup-->
 	<div id="search-popup" class="search-popup">
 		<div class="close-search theme-btn"><span class="flaticon-multiply"></span></div>
@@ -910,13 +931,6 @@
 	<div class="scroll-to-toped scroll-to-target" data-target="html"><span class="fa fa-long-arrow-up"></span></div>
 
 
-	<!--Global scripts-->
-    <script src="js/Integration/loggedInUser.js"></script>
-    <script src="js/Integration/stickyLoggedInUser.js"></script>
-    <script src="js/Integration/logout.js"></script>
-    <script src="js/Integration/userProfilePicture.js"></script>
-    <script src="js/Integration/subscribe.js"></script>
-
 
 	<script src="../js/jquery.js"></script>
 	<script src="../js/popper.min.js"></script>
@@ -930,6 +944,14 @@
 	<script src="../js/jquery-ui.js"></script>
 	<script src="../js/script.js"></script>
 	<script src="../js/color-settings.js"></script>
+
+	<!--Global scripts-->
+	<script src="js/Integration/loggedInUser.js"></script>
+	<script src="js/Integration/stickyLoggedInUser.js"></script>
+	<script src="js/Integration/logout.js"></script>
+	<script src="js/Integration/userProfilePicture.js"></script>
+	<script src="js/Integration/subscribe.js"></script>
+	<script src="js/Integration/aboutDirector.js"></script>
 
 </body>
 

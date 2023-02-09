@@ -173,16 +173,16 @@
     <h3>Add a project</h3>
     <form action="">
         <label for="">Project Image</label>
-        <input type="file" id="postImage" name="postImage">
+        <input type="file" id="projectImage" name="postImage">
 
         <label for="">Project Title:</label>
-        <input type="text" placeholder="Write the project title here" id="postTitle" name="title">
+        <input type="text" placeholder="Write the project title here" id="projectTitle" name="title">
 
         <label for="" class="postBody">Project Description:</label>
         <div id="content"> 
             <div class="panel positionPanelBody">
                 <div class="panel-body">
-                <textarea class="serviceBody" cols="30" rows="10" name="postBody" id="serviceDescription"></textarea>
+                <textarea class="serviceBody" cols="30" rows="10" name="postBody" id="projectDescription"></textarea>
                 </div>
             </div>
         </div>
@@ -191,44 +191,38 @@
         <div id="content"> 
             <div class="panel positionPanelBody">
                 <div class="panel-body">
-                    <select name="" id="" class="projectCategoryBody">
-                        <option value="">Urban Planning and Development in Rwanda</option>
-                        <option value="">Design and Supervision of Road Construction Civil Works</option>
-                        <option value="">Sanitary Landfill Feasibility Studies and Detailed Engineering Designs 
-                            with Environmental and Social Impacts Assessment (ESIA)</option>
-                        <option value="">District Land Use Planning and Physical Planning Elaboration
-                        </option>
-                        <option value="">District Land Use Planning and Physical Planning Elaboration
-                        </option>
-                        <option value="">Establishment of Baseline Surveys and District Potentialities Assessment</option>
-                        <option value="">Development of the National Policies and Strategies</option>
-                        <option value="">Capacity Building, Coaching and Knowledge Transfer on Local 
-                            Economic Development (LED) for Urban Development Project in 
-                            Rwanda.
-                            </option>
-                        <option value="">Other</option>
+                    <select name="" id="projectCategory" class="projectCategoryBody" >
+                        <option value="Urban Planning and Development in Rwanda">Urban Planning and Development in Rwanda</option>
+                        <option value="Design and Supervision of Road Construction Civil Works">Design and Supervision of Road Construction Civil Works</option>
+                        <option value="Sanitary Landfill Feasibility Studies and Detailed Engineering Designs with Environmental and Social Impacts Assessment (ESIA)">Sanitary Landfill Feasibility Studies and Detailed Engineering Designs with Environmental and Social Impacts Assessment (ESIA)</option>
+                        <option value="District Land Use Planning and Physical Planning Elaboration">District Land Use Planning and Physical Planning Elaboration</option>
+                        <option value="District Land Use Planning and Physical Planning Elaboration">District Land Use Planning and Physical Planning Elaboration</option>
+                        <option value="Establishment of Baseline Surveys and District Potentialities Assessment">Establishment of Baseline Surveys and District Potentialities Assessment</option>
+                        <option value="Development of the National Policies and Strategies">Development of the National Policies and Strategies</option>
+                        <option value="Capacity Building, Coaching and Knowledge Transfer on Local Economic Development (LED) for Urban Development Project in Rwanda">Capacity Building, Coaching and Knowledge Transfer on Local Economic Development (LED) for Urban Development Project in Rwanda</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
             </div>
         </div>
         
         <label for="">Employer:</label>
-        <input type="text" placeholder="Write the project title here" id="postTitle" name="title">
+        <input type="text" placeholder="Write the project title here" id="projectEmployer" name="title">
 
         <label for="">Year:</label>
-        <input type="text" placeholder="Write the project title here" id="postTitle" name="title">
+        <input type="text" placeholder="Write the project title here" id="projectYear" name="title">
 
         <label for="">Location:</label>
-        <input type="text" placeholder="Write the project title here" id="postTitle" name="title">
+        <input type="text" placeholder="Write the project title here" id="projectLocation" name="title">
 
         <label for="">Client:</label>
-        <input type="text" placeholder="Write the project title here" id="postTitle" name="title">
+        <input type="text" placeholder="Write the project title here" id="projectClient" name="title">
 
         <label for="" class="postBody">Activities Performed:</label>
         <div id="content"> 
             <div class="panel positionPanelBody">
                 <div class="panel-body">
-                <textarea class="serviceBody" cols="30" rows="10" name="postBody" id="serviceDescription"></textarea>
+                <textarea class="serviceBody" cols="30" rows="10" name="postBody" id="projectActivities"></textarea>
                 </div>
             </div>
         </div>
@@ -237,14 +231,14 @@
         <div id="content"> 
             <div class="panel positionPanelBody">
                 <div class="panel-body">
-                <textarea class="serviceBody" cols="30" rows="10" name="postBody" id="serviceDescription"></textarea>
+                <textarea class="serviceBody" cols="30" rows="10" name="postBody" id="projectResult"></textarea>
                 </div>
             </div>
         </div>
 
         <div class="postMessage" id="projectMessage"></div>
 
-        <input type="submit" id="submitPost" value="Create Project">
+        <input type="submit" id="submitProject" value="Create Project">
     </form>
 </div>
 
@@ -267,7 +261,7 @@
 
 <!-- Integration scripts -->
 <script src="asset/js/Integration/loggedInUser.js"></script>
-<script src="asset/js/Integration/createPost.js"></script>
+<script src="asset/js/Integration/addProject.js"></script>
 <script src="asset/js/Integration/protectAdmin.js"></script>
 
 

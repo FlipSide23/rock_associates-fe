@@ -28,16 +28,14 @@
 </head>
 
 <body id="mimin" class="dashboard">
-  <!-- <div id="viewAllPosts_preloader"></div>
-  <script src="./asset/js/preloaders/viewAllPosts.js"></script> -->
 
   <div class="popupBox" id="popupBox">
     <img src="../images/attention.png" alt="">
     <h2>Confirm!</h2>
-    <p id="accessDeniedText">Are you sure you want to delete this project? This process is irreversible!</p>
+    <p>Are you sure you want to delete this testimonial? This process is irreversible!</p>
     <div class="buttons">
         <button type="submit" class="cancel" onclick="closePopup()">Cancel</button>
-        <button onclick="deleteProject()"  class="deletePost">Delete Project</button>
+        <button onclick="deleteTestimonial()"  class="deletePost">Delete Testimonial</button>
     </div>
 </div>
  <!-- start: Header -->
@@ -181,9 +179,7 @@
 
         <section class="Blog">
             <div class="myBlogContent">
-                
-    
-                <div id="allProjectsContainer" style="font-family: calibri; text-align: justify;"></div>
+            <div id="manageTestimonials" style="font-family: calibri; text-align: justify;"></div>
             
             </div>
         </section>
@@ -208,8 +204,8 @@
 
 <!-- Integration scripts -->
 <script src="asset/js/Integration/loggedInUser.js"></script>
+<script src="asset/js/Integration/manageTestimonials.js"></script>
 <script src="asset/js/Integration/protectAdmin.js"></script>
-<script src="asset/js/Integration/manageProjects.js"></script>
 
 
 <!-- custom -->

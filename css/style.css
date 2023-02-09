@@ -116,6 +116,7 @@ p{
     margin-right: 10px;
 }
 
+
 .editServicesUpRight{
 	margin-top: -25px !important;
 	color: white;
@@ -1088,6 +1089,82 @@ img{
 	max-width:100%;
 	height:auto;	
 }
+
+
+.popupBoxResult{
+    width: 70%;
+    background: white;
+    border-radius: 6px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 0px 30px;
+    color: #333;
+    z-index: 999;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    box-shadow: 0px 0px 20px gray;
+    overflow-y: auto;
+  }
+
+  .popupBoxResult .emailDirector{
+	padding: 50px;
+  }
+
+  .popupBoxResult .emailDirector textarea{
+	border: 2px solid black;
+	width: 100%;
+	resize: none;
+	padding: 10px;
+  }
+  
+  .open-popupResult{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+ 
+  
+  .popupBoxResult button.cancel{
+    width: 20%;
+    padding: 10px 0;
+    background: rgb(60, 194, 60);
+    color: white;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .popupBoxResult .resultButtons{
+    display: flex;
+    justify-content: flex-end;
+	gap: 30px;
+	padding: 0 50px 20px;
+  }
+
+  .popupBoxResult button:hover{
+	opacity: 0.9;
+  }
+
+  .popupBoxResult button.closeResult{
+    width: 15%;
+    padding: 10px 0;
+    background: red;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  }
 
 /*** 
 
@@ -3508,8 +3585,9 @@ img{
 .gallery-block .inner-box .image .overlay-box .content{
 	position:absolute;
 	text-align: center;
-	left:0px;
-	bottom:35%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	width:100%;
 	padding:40px 30px 30px;
 }
@@ -3531,8 +3609,9 @@ img{
 	text-transform:uppercase;
 }
 
-.gallery-block .inner-box .image .overlay-box .content h3 a{
+.gallery-block .inner-box .image .overlay-box .content h3 a{	
 	color:#ffffff;
+	font-weight: bold;
 	transition:all 0.3s ease;
 	-moz-transition:all 0.3s ease;
 	-webkit-transition:all 0.3s ease;
@@ -3855,7 +3934,7 @@ img{
 .testimonial-section .owl-nav{
 	position:absolute;
 	left:15px;
-	bottom:0px;
+	bottom: 140px;
 }
 
 .testimonial-section .owl-nav .owl-prev,
@@ -5647,7 +5726,7 @@ img{
 .testimonial-section-two .carousel-column .inner-column .owl-nav{
 	position:absolute;
 	left:15px;
-	bottom:-220px;
+	bottom: -100px;
 }
 
 .testimonial-section-two .carousel-column .inner-column .owl-nav .owl-prev,
