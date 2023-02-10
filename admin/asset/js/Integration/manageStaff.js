@@ -30,10 +30,7 @@ async function manageStaff(){
                         <p class="ContentSection" style="font-family: calibri;">
                             ${position}
                         </p>
-
-                        
-                        
-                        <button style="background: #cba10a; border-color: #cba10a; color: white; font-weight: bold;"><a href="updateStaffMember.html?memberId=${staff_id}">Update Member</a> </button> &nbsp;
+                        <button style="background: #28a745; border-color: #28a745; color: white; font-weight: bold;"><a style="color: white;" href="updateStaffMember.html?memberId=${staff_id}">Update Member</a> </button> &nbsp;
                         <button  style="background: #ff6b6b;  border-color: #ff6b6b; color: white; font-weight: bold;" onclick="openPopup('${staff_id}')">Delete Member</button>
                     </div>
                 </div>

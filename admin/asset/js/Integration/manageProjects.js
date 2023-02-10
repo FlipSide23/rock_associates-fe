@@ -37,7 +37,7 @@ async function manageProjects(){
 
                         
                         
-                        <button style="background: #cba10a; border-color: #cba10a; color: white; font-weight: bold;"><a href="updateProject.html?slug=${slug}">Update Project</a></button> &nbsp;
+                        <button style="background: #28a745; border-color: #28a745; color: white; font-weight: bold;"><a style="color: white;" href="updateProject.html?slug=${slug}">Update Project</a></button> &nbsp;
                         <button  style="background: #ff6b6b;  border-color: #ff6b6b; color: white; font-weight: bold;" onclick="openPopup('${project_id}')">Delete Project</button>
                     </div>
                 </div>

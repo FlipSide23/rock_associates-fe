@@ -234,13 +234,13 @@ div.userProfile{
 }
 
 div.userProfileSticy{
-	position: fixed;
+	position: absolute;
 	background: url(../images/background/14.jpg);
 	box-shadow: 0px 0px 20px;
 	border-radius: 10px;
 	z-index: 3;
-	top: 55px;
-	right: 100px;
+	top: 40px;
+	right: 10px;
 	margin: 10px auto auto auto;
 	text-align: center;
 	padding-top: 20px;
@@ -3484,7 +3484,7 @@ img{
 
 .gallery-section{
 	position:relative;
-	padding:105px 0px 85px;
+	padding:90px 0px 50px;
 }
 
 .gallery-section .filters{
@@ -8406,6 +8406,31 @@ img{
     margin-right: 10px;
 }
 
+.aboutDirectorHeader{
+	position: relative;
+    color: #3aaf47;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3em;
+    margin-bottom: 20px;
+}
+
+.aboutDirectorIdentification li{
+	position: relative;
+    margin-bottom: 6px;
+    color: #666666;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.aboutDirectorIdentification li span{
+	position:relative;
+	color: #222222;
+    font-weight: 700;
+    width: 180px;
+    margin-right: 10px;	
+}
+
 
 .project-detail-section .lower-section .contact-box{
 	position:relative;
@@ -9020,6 +9045,7 @@ img{
 	position:relative;
 	padding: 30px 30px;
 	margin-top:70px;
+	margin-bottom: 0px !important;
 	border: 1px dashed #dddddd;
 	margin-bottom: 55px;
 	background-color:#ffffff;
@@ -9415,14 +9441,18 @@ img{
 
 .error-section{
 	position:relative;
-	padding:120px 0px 157px;
+	padding:157px 0px 157px;
 	background-repeat:no-repeat;
 	background-size:cover;
+	height: 100vh;
 }
 
 .error-section .content{
-	position:relative;
 	text-align:center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .error-section:before{
@@ -9439,7 +9469,7 @@ img{
 .error-section h1{
 	position:relative;
 	color:#ab7442;
-	font-size:180px;
+	font-size:100px !important;
 	font-weight:600;
 	line-height:1em;
 	margin-bottom:10px;
@@ -11157,6 +11187,10 @@ img{
 	padding:11px 34px;	
 	border-radius:0px;
 	cursor: pointer;
+}
+
+.styled-form .form-group .theme-btn:hover{
+	color: transparent !important;
 }
 
 .styled-form .remember-me{

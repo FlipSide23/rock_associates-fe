@@ -16,6 +16,13 @@
 
 @media only screen and (max-width: 1310px){
 
+	div.userProfile{
+		position: absolute;
+		top: 40px;
+		right: 10px;
+		
+	}
+
 	.page-wrapper{
 		overflow:hidden;	
 	}
@@ -246,7 +253,22 @@
 	.preNavSocialMedias{
 		display: none;
 	}
+
+	.otherPhotosOfDirector{
+		display: none;
+	}
+
+	.directorIdentification{
+		margin-top: 35px;
+	}
+
+	.popupBoxResult{
+		width: 90%;
+	}
 	
+	.aboutDirectorTitle{
+		margin-top: 30px !important;
+	}
 
 	.main-header .header-upper .info-outer{
 		padding-left: 275px !important;
@@ -641,6 +663,41 @@
 	width: 90%;
 }
 
+	div.userProfile{
+		position: absolute;
+		top: 40px;
+		left: -10px;
+	}
+
+	div.userProfileSticy{
+		position: absolute;
+		top: 40px;
+	}
+
+	.popupBox{
+		width: 330px;
+	  }
+
+	  .popupBoxResult .emailDirector {
+		padding: 20px;
+	}
+
+	 .popupBoxResult button.cancel{
+		width: 160px;
+	  }
+	 .popupBoxResult button.closeResult{
+		width: 140px;
+	  }
+
+	  .error-section h1{
+		position:relative;
+		color:#ab7442;
+		font-size:70px !important;
+		font-weight:600;
+		line-height:1em;
+		margin-bottom:10px;
+	}
+
 .blog-page-section .search-box .form-group button{
 	right:38px;
 }
@@ -1018,6 +1075,11 @@
 	.main-header .outer-box .buttons-box,
 	.main-slider .text br{
 		display:none;
+	}
+
+	.showLoginDiv{
+		display: block !important;
+		margin-top: -1px !important;
 	}
 	
 	.main-slider .slide{
@@ -1750,6 +1812,23 @@
 	.main-header .info-box{
 		width: 250px;
 		margin-left: -40px;
+	}
+
+	.main-header .btn-box .quote-btnSticky {
+		padding: 8px 10px;
+		margin-right: -20px ;
+	}
+
+	div.userProfile{
+		width: 300px;
+		top: 40px;
+		left: -25px;
+	}
+
+	div.userProfileSticy{
+		width: 300px;
+		top: 40px;
+		right: -15px;
 	}
 
 	

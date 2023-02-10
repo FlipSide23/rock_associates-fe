@@ -23,7 +23,7 @@ async function users(){
     countUsers.innerHTML = users.length;
 
 // Number of posts
-let postsResponse = await fetch("http://localhost:5000/getAllPosts", getData)
+let postsResponse = await fetch("http://localhost:5000/getAllPosts?perPage=10000000000", getData)
     const postsFetchedData = await postsResponse.json()
 
     const posts = postsFetchedData.allAvailablePosts;

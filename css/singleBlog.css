@@ -132,7 +132,7 @@ h4 span{
       word-break: break-word;
   }
   .topBox{
-    margin-top: -60px;
+    margin-top: -90px;
   }
   .avatar_comment{
     display: block;
@@ -470,7 +470,7 @@ h4 span{
     div.comments{
       display: grid;
       grid-template-columns: auto;
-      padding: 43px 0px 43px 0px;
+      /* padding: 43px 0px 43px 0px; */
     }
 
     .box_result .result_comment{

@@ -27,7 +27,7 @@ async function manageServices(){
                             ${description}
                         </p>
 
-                        <button style="background: #cba10a; border-color: #cba10a; color: white; font-weight: bold;"><a href="updateService.html?serviceId=${service_id}">Update Service</a> </button> &nbsp;
+                        <button style="background: #28a745; border-color: #28a745; color: white; font-weight: bold;"><a style="color: white;" href="updateService.html?serviceId=${service_id}">Update Service</a> </button> &nbsp;
                         <button  style="background: #ff6b6b;  border-color: #ff6b6b; color: white; font-weight: bold;" onclick="openPopup('${service_id}')">Delete Service</button>
                     </div>
                 </div>
