@@ -52,23 +52,24 @@ function UpdatePost(){
     const summernote = document.getElementById("updatePost");
     
 
-    if (!postImage.files[0]) {
+    if (postImage.files.length && !postImage.files[0]) {
         blogMessage.style.color = "red"
         blogMessage.innerHTML = "Please add a new post image or confirm the previous one to be able to edit a post!"
         return;
       }
 
+    const data = {
+      title: postTitleDetails.value, 
+      postBody: summernote.innerHTML,
+    }
+
+    if (postImage.files[0]){
+
     const reader =  new FileReader();
      reader.readAsDataURL(postImage.files[0])
      reader.addEventListener("load",()=>{
-        const finalPostImage = reader.result
-
-    const data = {
-        title: postTitleDetails.value, 
-        postBody: summernote.innerHTML,
-        postImage: finalPostImage
-    }
-        
+      const finalPostImage = reader.result
+      data.postImage = finalPostImage;
 
     const sendData = {  
         method: "PUT",
@@ -109,6 +110,45 @@ fetch(`https://rockassociates-api.herokuapp.com/updatePost?slug=${slug}`, sendDa
       })
 
   })
+} else{
+    const sendData = {  
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
+  }
+
+  fetch(`https://rockassociates-api.herokuapp.com/updatePost?slug=${slug}`, sendData)
+  .then(response => response.json())
+  .then((fetchedData)=>{
+  console.log(fetchedData)
+
+  if (fetchedData.postUpdateSuccess){
+      blogMessage.style.color = "green"
+      blogMessage.innerHTML = fetchedData.postUpdateSuccess
+
+      const updatePostImage = document.getElementById("updatePostImage");
+      updatePostImage.src = fetchedData.updatedPost.postImage
+
+      setTimeout(()=>{location = "viewAllPosts.html"}, 2000)
+  }
+
+  else if(fetchedData.unauthorizedError){
+      blogMessage.style.color = "red"
+      blogMessage.innerHTML = fetchedData.unauthorizedError
+  }
+
+  else if(fetchedData.postUpdateError){
+      blogMessage.style.color = "red"
+      blogMessage.innerHTML = fetchedData.postUpdateError
+  }
+
+  else{
+      blogMessage.style.color = "red"
+      blogMessage.innerHTML = "Something went wrong, we were unable to update this post!"
+  }
+
+    })
+}
 }
 
 

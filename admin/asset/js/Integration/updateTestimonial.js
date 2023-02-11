@@ -53,23 +53,24 @@ async function updateTestimonials(){
     const testimonialBody = document.getElementById("testimonialBody")
     const image = document.getElementById("image")
 
-    if (!image.files[0]) {
+    if (image.files.length && !image.files[0]) {
         testimonialMessage.style.color = "red"
         testimonialMessage.innerHTML = "Please confirm the person image or add a new one to edit a testimonial!"
         return;
       }
+
+    const data = {
+    location: testimonialLocation.value, 
+    name: names.value,
+    testimonial: testimonialBody.value,
+    }    
     
+    if (image.files[0]){
     const reader =  new FileReader();
      reader.readAsDataURL(image.files[0])
      reader.addEventListener("load",()=>{
     const finalImage = reader.result
-
-    const data = {
-        location: testimonialLocation.value, 
-        name: names.value,
-        testimonial: testimonialBody.value,
-        image: finalImage,
-    }    
+    data.image = finalImage;
 
     const sendData = {  
         method: "PUT",
@@ -100,6 +101,37 @@ fetch(`https://rockassociates-api.herokuapp.com/updateTestimonial?testimonialId=
 })
 
     })
+
+} else{
+    const sendData = {  
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
+        }
+
+    fetch(`https://rockassociates-api.herokuapp.com/updateTestimonial?testimonialId=${testimonialId}`, sendData)
+    .then(response => response.json())
+    .then((fetchedData)=>{
+        console.log(fetchedData)
+
+        if (fetchedData.successMessage){
+            testimonialMessage.style.color = "green"
+            testimonialMessage.innerHTML = fetchedData.successMessage
+            location = "manageTestimonial.html"
+        }
+
+        else if (fetchedData.validationError){
+            testimonialMessage.style.color = "red"
+            testimonialMessage.innerHTML = fetchedData.validationError
+        }
+
+        else{
+            testimonialMessage.style.color = "red"
+            testimonialMessage.innerHTML = "Something went wrong, we were unable to add this staff Testimonial!"
+        }
+    })
+
+}
 }
 
 

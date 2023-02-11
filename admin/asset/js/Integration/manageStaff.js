@@ -37,10 +37,10 @@ async function manageStaff(){
                     <div class="blogImage">
                         <img src="${image}" alt="" >
                     </div>
-                    <div class="blogContent">
-                        <h3> <a style="cursor: pointer; font-family: poppins;">${name}</a> </h3>
+                    <div class="blogContent" style="align-self:center;">
+                        <h3> <a style="cursor: pointer; font-family: poppins; font-size: 25px;">${name}</a> </h3>
                         <hr>
-                        <p class="ContentSection" style="font-family: calibri;">
+                        <p class="ContentSection" style="font-family: calibri; font-size: 18px; margin-bottom: 25px;">
                             ${position}
                         </p>
                         <button style="background: #28a745; border-color: #28a745; color: white; font-weight: bold;"><a style="color: white;" href="updateStaffMember.html?memberId=${staff_id}">Update Member</a> </button> &nbsp;

@@ -61,55 +61,85 @@ async function updateStaffMember(){
     const linkedinProfile = document.getElementById("linkedinProfile");
     const twitterProfile = document.getElementById("twitterProfile");
 
-    if (!image.files[0]) {
-        updateStaffMessage.style.color = "red"
-        updateStaffMessage.innerHTML = "Please confirm the above image or add a new one to edit a staff member!"
+    if (image.files.length && !image.files[0]) {
+        updateStaffMessage.style.color = "red";
+        updateStaffMessage.innerHTML = "Please confirm the above image or add a new one to edit a staff member!";
         return;
       }
-    
-    const reader =  new FileReader();
-     reader.readAsDataURL(image.files[0])
-     reader.addEventListener("load",()=>{
-    const finalImage = reader.result
 
-    const data = {
+      const data = {
         position: position.value, 
         name: names.value,
         facebookProfile: facebookProfile.value,
         linkedlinProfile: linkedinProfile.value,
         twitterProfile: twitterProfile.value,
-        image: finalImage,
     }    
 
+if (image.files[0]) {
+    const reader = new FileReader();
+    reader.readAsDataURL(image.files[0]);
+    reader.addEventListener("load", () => {
+    const finalImage = reader.result;
+    data.image = finalImage;
+
     const sendData = {  
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch(`https://rockassociates-api.herokuapp.com/updateMember?memberId=${memberId}`, sendData)
-.then(response => response.json())
-.then((fetchedData)=>{
-    console.log(fetchedData)
+    fetch(`https://rockassociates-api.herokuapp.com/updateMember?memberId=${memberId}`, sendData)
+      .then(response => response.json())
+      .then((fetchedData)=>{
+        console.log(fetchedData)
 
-    if (fetchedData.successMessage){
+        if (fetchedData.successMessage){
+          updateStaffMessage.style.color = "green"
+          updateStaffMessage.innerHTML = fetchedData.successMessage
+          location = "manageStaff.html"
+        }
+
+        else if (fetchedData.validationError){
+          updateStaffMessage.style.color = "red"
+          updateStaffMessage.innerHTML = fetchedData.validationError
+        }
+
+        else{
+          updateStaffMessage.style.color = "red"
+          updateStaffMessage.innerHTML = "Something went wrong, we were unable to add this staff member!"
+        }
+      });
+  });
+} else {
+  const sendData = {  
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
+  }
+
+  fetch(`https://rockassociates-api.herokuapp.com/updateMember?memberId=${memberId}`, sendData)
+    .then(response => response.json())
+    .then((fetchedData)=>{
+      console.log(fetchedData)
+
+      if (fetchedData.successMessage){
         updateStaffMessage.style.color = "green"
         updateStaffMessage.innerHTML = fetchedData.successMessage
         location = "manageStaff.html"
-    }
+      }
 
-    else if (fetchedData.validationError){
+      else if (fetchedData.validationError){
         updateStaffMessage.style.color = "red"
         updateStaffMessage.innerHTML = fetchedData.validationError
-    }
+      }
 
-    else{
+      else{
         updateStaffMessage.style.color = "red"
         updateStaffMessage.innerHTML = "Something went wrong, we were unable to add this staff member!"
-    }
-})
+      }
+    });
+}
 
-    })
 }
 
 

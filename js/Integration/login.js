@@ -13,7 +13,7 @@ if (MyToken){
 }
 
 submit.addEventListener("click", (event)=>{
-    event.preventDefault();
+    // event.preventDefault();
     submit.innerHTML = `<img src="../../images/icons/Spinner.gif" alt="Loading..." width="50px" height="50px">`
 
     login();

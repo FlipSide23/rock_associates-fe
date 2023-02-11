@@ -10,16 +10,6 @@
 			$('.preloader').delay(200).fadeOut(600);
 		}
 	}
-	function handlePreloaderBlog() {
-		if($('.preloaderBlog').length){
-			$('.preloaderBlog').delay(600).fadeOut(600);
-		}
-	}
-	function handlePreloaderSingleBlog() {
-		if($('.preloaderSingleBlog').length){
-			$('.preloaderSingleBlog').delay(600).fadeOut(600);
-		}
-	}
 	
 	
 	//Update Header Style and Scroll to Top
@@ -407,6 +397,10 @@
 			}
 		});    		
 	}
+
+
+	//Sortable Masonary with Filters
+	
 	
 	
 	// News Carousel
@@ -718,9 +712,7 @@
 	
 	$(window).on('load', function() {
 		handlePreloader();
-		handlePreloaderBlog();
-		handlePreloaderSingleBlog();
-		// enableMasonry();
+		// enableMasonry()
 	});	
 
 })(window.jQuery);

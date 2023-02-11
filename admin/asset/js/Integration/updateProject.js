@@ -76,31 +76,32 @@ async function updateProject(){
     const projectActivities = document.getElementById("projectActivities");
     const projectResult = document.getElementById("projectResult");
 
-    if (!projectImage.files[0]) {
+    if (projectImage.files.length && !projectImage.files[0]) {
         projectMessage.style.color = "red"
         projectMessage.innerHTML = "Please add a project image or confirm the above one to be able to update a post!"
         return;
       }
-    
+
+    const data = {
+    title: projectTitle.value, 
+    description: projectDescription.value, 
+    category: projectCategory.options[projectCategory.selectedIndex].text, 
+    employer: projectEmployer.value, 
+    year: projectYear.value, 
+    location: projectLocation.value, 
+    client: projectClient.value, 
+    activitiesPerformed: projectActivities.value, 
+    result: projectResult.value,
+}
+       
+if (projectImage.files[0]) {
+
     const reader =  new FileReader();
      reader.readAsDataURL(projectImage.files[0])
      reader.addEventListener("load",()=>{
     const finalProjectImage = reader.result
-
-    const data = {
-        title: projectTitle.value, 
-        description: projectDescription.value, 
-        category: projectCategory.options[projectCategory.selectedIndex].text, 
-        employer: projectEmployer.value, 
-        year: projectYear.value, 
-        location: projectLocation.value, 
-        client: projectClient.value, 
-        activitiesPerformed: projectActivities.value, 
-        result: projectResult.value,
-        projectImage: finalProjectImage,
-    }
-        
-
+    data.projectImage = finalProjectImage;
+    
     const sendData = {  
         method: "PUT",
         body: JSON.stringify(data),
@@ -135,4 +136,39 @@ fetch(`https://rockassociates-api.herokuapp.com/updateProject?slug=${slug}`, sen
 })
 
     })
+
+} else{
+        const sendData = {  
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
+        }
+
+    fetch(`https://rockassociates-api.herokuapp.com/updateProject?slug=${slug}`, sendData)
+    .then(response => response.json())
+    .then((fetchedData)=>{
+        console.log(fetchedData)
+
+        if (fetchedData.projectUpdateSuccess){
+            projectMessage.style.color = "green"
+            projectMessage.innerHTML = fetchedData.projectUpdateSuccess
+            location = "manageProjects.html"
+        }
+
+        else if (fetchedData.validationError){
+            projectMessage.style.color = "red"
+            projectMessage.innerHTML = fetchedData.validationError
+        }
+
+        else if (fetchedData.duplicationError){
+            projectMessage.style.color = "red"
+            projectMessage.innerHTML = fetchedData.duplicationError
+        }
+
+        else{
+            projectMessage.style.color = "red"
+            projectMessage.innerHTML = "Something went wrong, we were unable to create this Project!"
+        }
+    })
+}
 }

@@ -39,10 +39,10 @@ async function manageProjects(){
                     <div class="blogImage">
                         <img src="${image}" alt="" >
                     </div>
-                    <div class="blogContent">
+                    <div class="blogContent" style="align-self:center;">
                         <h3> <a style="cursor: pointer; font-family: poppins;">${title}</a> </h3>
                         <hr>
-                        <p class="ContentSection" style="font-family: calibri;">
+                        <p class="ContentSection" style="font-family: calibri; margin-bottom: 25px;">
                             ${description}
                         </p>
 
