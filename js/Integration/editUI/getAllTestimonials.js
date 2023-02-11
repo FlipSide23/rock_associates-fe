@@ -9,10 +9,22 @@ async function getTestimonials(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllTestimonials", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllTestimonials", getData)
     
     const allTestimonials = await response.json(); 
     const results = allTestimonials.allTestimonials;
+
+    if(results.length === 0){
+
+        testimonialContainer.innerHTML = `
+             <div class="noTestimonialsFound">
+                 No testimonials added!
+             </div>
+         
+         `
+     }
+ 
+     else{
 
         const testimonialTemplate = results.map(myFunction).join(' ');
 
@@ -112,7 +124,7 @@ async function getTestimonials(){
                 }
             });
         }
-        
+    }   
 
         }
         

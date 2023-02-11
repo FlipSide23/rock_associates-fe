@@ -4,6 +4,7 @@ const popupBoxComments = document.getElementById("popupBoxComments")
 const popupBoxCommentsValidation = document.getElementById("popupBoxCommentsValidation")
 const popupBoxCommentsReplies = document.getElementById("popupBoxCommentsReplies")
 const popupBoxCommentsRepliesValidation = document.getElementById("popupBoxCommentsRepliesValidation")
+const commentList = document.getElementById("list_comment");
 
 function closePopupComments(){
     popupBoxComments.classList.remove("open-popup")
@@ -41,7 +42,7 @@ async function comment(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/createComment/"+post__id, sendData)
+fetch("https://rockassociates-api.herokuapp.com/createComment/"+post__id, sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)
@@ -55,7 +56,7 @@ fetch("http://localhost:5000/createComment/"+post__id, sendData)
     }
 
     else if(fetchedData.successMessage){
-
+        commentList.innerHTML = ""
         const commentorNames = fetchedData.commentContent.user_id.firstName +" "+ fetchedData.commentContent.user_id.lastName
         var commentorPicture
         var commentorImageTemplate;
@@ -101,6 +102,7 @@ fetch("http://localhost:5000/createComment/"+post__id, sendData)
         
             document.getElementById('list_comment').prepend(el);
             $('.commentar').val('');
+
     }
 
 })
@@ -120,7 +122,7 @@ async function getAllComments(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllComments/"+postId, getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllComments/"+postId, getData)
     const fetchedData = await response.json()
     console.log(fetchedData)
 
@@ -128,6 +130,15 @@ async function getAllComments(){
 
     const countComments = document.getElementById("countComments")
     countComments.innerHTML = `<span>(${comments.length})</span>`
+
+    if(comments.length === 0){
+        commentList.innerHTML = `
+            <div class="noCommentsFound">
+                No Comments yet!
+            </div>
+        
+        `
+    }
 
     for(let i=0; i<comments.length; i++){
         const commentsArray = comments[i];  
@@ -156,7 +167,7 @@ async function getAllComments(){
         }
 
 
-        let responseReplies = await fetch("http://localhost:5000/getAllCommentReplies/"+comment_id, getData)
+        let responseReplies = await fetch("https://rockassociates-api.herokuapp.com/getAllCommentReplies/"+comment_id, getData)
         const fetchedDataReplies = await responseReplies.json()
 
         const replies = fetchedDataReplies.allAvailableReplies;
@@ -204,7 +215,7 @@ async function getAllComments(){
    
         if(likeToken){
 
-        let responseLikes = await fetch("http://localhost:5000/loggedInUser", getData)
+        let responseLikes = await fetch("https://rockassociates-api.herokuapp.com/loggedInUser", getData)
         
         
             const fetchedDataLikes = await responseLikes.json()
@@ -224,9 +235,7 @@ async function getAllComments(){
             likeText = "Like"
         }
         
-    
 
-        const commentList = document.getElementById("list_comment");
         
         const commentTemplate = `
         <li class="box_result row" id="${comment_id}">
@@ -289,7 +298,7 @@ async function commentReply(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/commentReply/"+commentId, sendData)
+fetch("https://rockassociates-api.herokuapp.com/commentReply/"+commentId, sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

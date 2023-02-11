@@ -10,7 +10,7 @@ async function postDetails(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch(`http://localhost:5000/getSinglePost?slug=${slug}`, getData)
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/getSinglePost?slug=${slug}`, getData)
     const fetchedData = await response.json() 
     const singlePost = fetchedData.fetchedPost;
 
@@ -24,9 +24,6 @@ async function postDetails(){
 
     const postPictureSource = document.getElementById("postPictureSource")
     postPictureSource.src = singlePost.postImage
-
-    const authorImageLink = document.getElementById("authorImageLink")
-    authorImageLink.src = singlePost.postCreator.imageLink
 
     const authorNameSingleBlog = document.getElementById("authorNameSingleBlog")
     authorNameSingleBlog.innerHTML = singlePost.postCreator.firstName +' '+ singlePost.postCreator.lastName;
@@ -57,7 +54,7 @@ async function postDetails(){
             headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
         }
 
-        let userResponse = await fetch("http://localhost:5000/loggedInUser", userGetData)
+        let userResponse = await fetch("https://rockassociates-api.herokuapp.com/loggedInUser", userGetData)
         const userFetchedData = await userResponse.json()
         console.log(userFetchedData)
 
@@ -82,16 +79,15 @@ async function postDetails(){
 }
 
 postDetails()
-
+getRelatedPosts();
 
 // Get related posts
 
 let singlePostsContainer = document.getElementById("singlePostsContainer");
 async function getRelatedPosts(){
 
-    const postsCount = (await postDetails()).otherPostDetails.totalPosts
 
-    let response = await fetch(`http://localhost:5000/getAllPosts?perPage=${postsCount}`)    
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/getAllPosts?perPage=10000000000`)    
     const allPosts = await response.json();
     let relatedPosts = allPosts.allAvailablePosts; 
     let posts = relatedPosts.filter(post => post.slug !== slug);
@@ -99,7 +95,7 @@ async function getRelatedPosts(){
 
     if(posts.length === 0){
         singlePostsContainer.innerHTML = `
-            <div class="noPostFound">
+            <div class="noRelatedPostFound">
                 No Post found
             </div>
         
@@ -136,7 +132,7 @@ async function getRelatedPosts(){
 
     }
 
-getRelatedPosts();
+
 
 
 

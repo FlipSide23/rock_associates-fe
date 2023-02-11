@@ -9,7 +9,7 @@ async function projectDetails(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch(`http://localhost:5000/getSingleProject?slug=${slug}`, getData)
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/getSingleProject?slug=${slug}`, getData)
     const fetchedData = await response.json() 
     const singleProject = fetchedData.fetchedProject;
 
@@ -54,14 +54,27 @@ async function getAllProjects(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllProjects", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllProjects", getData)
     
     const allProjects = await response.json(); 
     const allResults = allProjects.allAvailableProjects;
     let results = allResults.filter(project => project.slug !== slug);
 
+    
+
     const projectsCount = document.getElementById("allProjects")
     projectsCount.innerHTML = results.length
+
+    if(results.length === 0){
+        projectsContainer.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No Project found!
+            </div>
+        
+        `
+    }
+
+    else{
 
         const projectTemplate = results.map(myFunction).join(' ');
 
@@ -95,7 +108,7 @@ async function getAllProjects(){
             projectClass = "other"
         }
 
-        // let response = await fetch(`http://localhost:5000/getProjectByCategory?category=${eachProject.category}`, getData)
+        // let response = await fetch(`https://rockassociates-api.herokuapp.com/getProjectByCategory?category=${eachProject.category}`, getData)
     
         // const allProjects = await response.json(); 
         // const results = allProjects.fetchedProject;
@@ -188,6 +201,8 @@ async function getAllProjects(){
 				}
 			});
 		}
+
+    }
 
         }
         

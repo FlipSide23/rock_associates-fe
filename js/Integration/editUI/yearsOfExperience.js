@@ -8,7 +8,7 @@ async function getExperience(){
             headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
         }
 
-        let response = await fetch("http://localhost:5000/getExperience", getData)
+        let response = await fetch("https://rockassociates-api.herokuapp.com/getExperience", getData)
         
         const ourExperience = await response.json(); 
         const Experience = ourExperience.experienceContent;

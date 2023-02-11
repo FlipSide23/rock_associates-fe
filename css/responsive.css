@@ -663,6 +663,14 @@
 	width: 90%;
 }
 
+.perfectCenteredNoItemFound{
+	font-size: 20px;
+}
+
+.noTestimonialsFound{
+	font-size: 20px;
+}
+
 	div.userProfile{
 		position: absolute;
 		top: 40px;

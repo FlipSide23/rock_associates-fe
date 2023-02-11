@@ -7,7 +7,7 @@ async function testimonialDetails(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch(`http://localhost:5000/getSingleTestimonial?testimonialId=${testimonialId}`, getData)
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/getSingleTestimonial?testimonialId=${testimonialId}`, getData)
     const fetchedData = await response.json()
     console.log(fetchedData)
 
@@ -77,7 +77,7 @@ async function updateTestimonials(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch(`http://localhost:5000/updateTestimonial?testimonialId=${testimonialId}`, sendData)
+fetch(`https://rockassociates-api.herokuapp.com/updateTestimonial?testimonialId=${testimonialId}`, sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

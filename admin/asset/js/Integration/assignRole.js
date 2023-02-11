@@ -8,9 +8,8 @@ async function registeredUsers(){
         headers: {"auth_token": JSON.parse(sessionStorage.getItem("token"))}
     }
 
-  let response = await fetch("https://rockassociates.cyclic.app/getRegisteredUsers", getData)
+  let response = await fetch("https://rockassociates-api.herokuapp.com/getRegisteredUsers", getData)
   const fetchedData = await response.json()
-  hideAssignRoleLoader()
   document.title = "Rock Associates Company Ltd | Dashboard"
     const users = fetchedData.RegisteredUsers;
     console.log(users);

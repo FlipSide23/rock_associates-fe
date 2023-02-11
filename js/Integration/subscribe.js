@@ -25,7 +25,7 @@ function subscription(){
         headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/Subscribe", sendData)
+fetch("https://rockassociates-api.herokuapp.com/Subscribe", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)
@@ -45,6 +45,15 @@ fetch("http://localhost:5000/Subscribe", sendData)
         subscriptionErrorMessage.style.color = "red"
         subscriptionStatus.innerHTML = "Fail!"
         subscriptionErrorMessage.innerHTML = fetchedData.validationError
+        submitSubscription.innerHTML= "Subscribe"
+    }
+
+    else if (fetchedData.duplicateError){
+        popupBoxSubscription.classList.add("open-popup")
+        subscriptionStatus.style.color = "red"
+        subscriptionErrorMessage.style.color = "red"
+        subscriptionStatus.innerHTML = "Fail!"
+        subscriptionErrorMessage.innerHTML = fetchedData.duplicateError
         submitSubscription.innerHTML= "Subscribe"
     }
 

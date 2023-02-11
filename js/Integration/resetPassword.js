@@ -36,7 +36,7 @@ function resetPassword(){
         headers: new Headers({'Content-Type': 'application/json; charset=UTF-8', "auth_token": JSON.parse(localStorage.getItem("forgotPasswordToken"))})
     }
 
-fetch("http://localhost:5000/newPassword", sendData)
+fetch("https://rockassociates-api.herokuapp.com/newPassword", sendData)
 .then(response => response.json())
 .then((newPasswordFetchedData)=>{
     console.log(newPasswordFetchedData)

@@ -1,6 +1,7 @@
 
 // Get all staff Services
 let homeServicesContainer = document.getElementById("homeServicesContainer");
+let viewAllServices = document.getElementById("viewAllServices");
 async function getServices(){
         
     const getData = {
@@ -8,10 +9,15 @@ async function getServices(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllServices", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllServices", getData)
     
     const allStaff = await response.json(); 
     const results = allStaff.allServices;
+
+	if(results.length === 0){
+        viewAllServices.style.display = "none"
+		homeServicesContainer.style.marginBottom = "100px"
+    }
 
         const serviceTemplate = results.map(myFunction).join(' ');
 

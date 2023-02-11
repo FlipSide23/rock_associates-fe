@@ -1,5 +1,5 @@
 
-
+const updateDeletePost = document.getElementById("updateDeletePost");
 
 async function update_delete_post(){
     const getData = {
@@ -7,11 +7,22 @@ async function update_delete_post(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllPosts?perPage=1000000", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllPosts?perPage=1000000", getData)
     const fetchedData = await response.json()
 
     document.title = "Rock Associates Company Ltd | Dashboard"
     const posts = fetchedData.allAvailablePosts;
+
+    if(posts.length === 0){
+        updateDeletePost.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No posts found!
+            </div>
+        
+        `
+    }
+
+    else{
 
     for(let i=0; i<posts.length; i++){
         const postArray = posts[i];
@@ -38,7 +49,7 @@ async function update_delete_post(){
            </div>`
         }
 
-        const updateDeletePost = document.getElementById("updateDeletePost");
+        
         
         const postTemplate = `
                 <div class="blogBoxes blogBox1">
@@ -67,6 +78,8 @@ async function update_delete_post(){
         
         updateDeletePost.innerHTML += postTemplate
     }
+
+}
 }
 
 

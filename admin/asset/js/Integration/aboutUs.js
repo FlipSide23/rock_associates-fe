@@ -13,7 +13,7 @@ async function getAbout() {
 
 
 
-    let response = await fetch('http://localhost:5000/getAbout', getOptions)
+    let response = await fetch('https://rockassociates-api.herokuapp.com/getAbout', getOptions)
     const fetchAbout = await response.json();
 
     const aboutContent = fetchAbout.aboutContent
@@ -49,7 +49,7 @@ function updateAbout(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/updateAbout", sendData)
+fetch("https://rockassociates-api.herokuapp.com/updateAbout", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

@@ -31,7 +31,7 @@ async function like(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    fetch("http://localhost:5000/likePost/"+post__id, sendData)
+    fetch("https://rockassociates-api.herokuapp.com/likePost/"+post__id, sendData)
     .then(response => response.json())
     .then((fetchedData)=>{
         console.log(fetchedData)
@@ -50,7 +50,7 @@ async function likeComment(commentId){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    fetch("http://localhost:5000/likeComment/"+commentId, sendData)
+    fetch("https://rockassociates-api.herokuapp.com/likeComment/"+commentId, sendData)
     .then(response => response.json())
     .then((fetchedData)=>{
         console.log(fetchedData)

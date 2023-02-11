@@ -208,6 +208,45 @@ img.AuthorImage{
 	font-weight: bold;
 }
 
+.noCommentsFound{
+	color: rgb(177, 177, 177);
+	width: 100%;
+    margin: auto;
+	font-size: 20px;
+	margin-left: -12px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.noTestimonialsFound{
+	font-size: 25px;
+	padding: 100px 0px 50px;
+	font-weight: bold;
+	color: rgb(177, 177, 177) ;
+}
+
+.noRelatedPostFound{
+	color: rgb(177, 177, 177);
+	width: 100%;
+    margin: auto;
+	font-size: 16px;
+	padding: 10px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.perfectCenteredNoItemFound{
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	font-size: 25px;
+	padding: 50px;
+	font-weight: bold;
+	color: rgb(177, 177, 177) ;
+}
+
 /* Logged In user dropdown */
 :root {
     --circleSize: 105px;
@@ -3939,7 +3978,6 @@ img{
 .testimonial-section .owl-nav{
 	position:absolute;
 	left:15px;
-	bottom: 140px;
 }
 
 .testimonial-section .owl-nav .owl-prev,
@@ -11187,10 +11225,6 @@ img{
 	padding:11px 34px;	
 	border-radius:0px;
 	cursor: pointer;
-}
-
-.styled-form .form-group .theme-btn:hover{
-	color: transparent !important;
 }
 
 .styled-form .remember-me{

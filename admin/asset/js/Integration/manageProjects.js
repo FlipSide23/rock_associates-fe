@@ -1,5 +1,5 @@
 
-
+const allProjectsContainer = document.getElementById("allProjectsContainer");
 
 async function manageProjects(){
     const getData = {
@@ -7,10 +7,21 @@ async function manageProjects(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllProjects", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllProjects", getData)
     const fetchedData = await response.json()
 
     const projects = fetchedData.allAvailableProjects;
+
+    if(projects.length === 0){
+        allProjectsContainer.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No projects found!
+            </div>
+        
+        `
+    }
+
+    else{
 
     for(let i=0; i<projects.length; i++){
         const projectArray = projects[i];
@@ -21,7 +32,7 @@ async function manageProjects(){
         const slug = projectArray.slug;
         const project_id = projectArray._id;
     
-        const allProjectsContainer = document.getElementById("allProjectsContainer");
+        
         
         const projectTemplate = `
                 <div class="blogBoxes blogBox1">
@@ -45,6 +56,8 @@ async function manageProjects(){
         
         allProjectsContainer.innerHTML += projectTemplate
     }
+
+}
 }
 
 
@@ -73,7 +86,7 @@ async function deleteProject(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
     
-    let response = await fetch("http://localhost:5000/deleteProject/"+projectIdDeletion, getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/deleteProject/"+projectIdDeletion, getData)
     const fetchedData = await response.json()
     console.log(fetchedData)
 

@@ -8,15 +8,26 @@ async function getAllProjects(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllProjects", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllProjects", getData)
     
     const allProjects = await response.json(); 
-    const results = allProjects.allAvailableProjects;
+    const resultProjects = allProjects.allAvailableProjects;
 
     const projectsCount = document.getElementById("allProjects")
-    projectsCount.innerHTML = results.length
+    projectsCount.innerHTML = resultProjects.length
 
-        const projectTemplate = results.map(myFunction).join(' ');
+    if(resultProjects.length === 0){
+        projectsContainer.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No Projects added!
+            </div>
+        
+        `
+    }
+
+    else{
+
+        const projectTemplate = resultProjects.map(myFunction).join(' ');
 
         function myFunction(eachProject) {
         let projectClass;
@@ -137,6 +148,8 @@ async function getAllProjects(){
 				}
 			});
 		}
+
+    }
 
         }
         

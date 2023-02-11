@@ -1,6 +1,7 @@
 
 //popup
 const popupBoxSubscriptions = document.getElementById("popupBoxSubscriptions")
+let resultsContainer = document.getElementById("subscriptionsContainer");
 let subscriberIdDeletion;
 
 function openPopupSubscriptions(subscriber_id){
@@ -28,7 +29,7 @@ let deleteSubscriber= async() => {
        },
     }
 
-    let response = await fetch('http://localhost:5000/deleteSubscriber/'+subscriberIdDeletion, deleteOptions)
+    let response = await fetch('https://rockassociates-api.herokuapp.com/deleteSubscriber/'+subscriberIdDeletion, deleteOptions)
     const fetchDeletedPost = await response.json();
     console.log(fetchDeletedPost)
         if(fetchDeletedPost.removedMessage){ 
@@ -42,22 +43,29 @@ let deleteSubscriber= async() => {
 
 // Get subscribers
 
-
-function hideSubscriptionsLoader(){
-    subscriptions_preloader.classList.remove("show")
-}
   
 
 async function fetchSubscribers(){
         
-    let response = await fetch("http://localhost:5000/getAllSubscriptions")
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllSubscriptions")
     
     const allResults = await response.json(); 
     const results = allResults.subscribers;
-    hideSubscriptionsLoader()
     document.title = "Rock Associates Company Ltd | Dashboard"
+
+    if(results.length === 0){
+        resultsContainer.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                !No subscriptions found
+            </div>
+        
+        `
+    }
+
+    else{
+
     for(let i=0;i<results.length;i++){
-        let resultsContainer = document.getElementById("subscriptionsContainer");
+        
 
         let resultsArray = results[i];
 
@@ -107,7 +115,7 @@ async function fetchSubscribers(){
 
     }
 
-   
+}
     
         }
         

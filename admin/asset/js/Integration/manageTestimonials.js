@@ -1,12 +1,25 @@
+const manageTestimonials = document.getElementById("manageTestimonials");
+
 async function manageTestimonial(){
     const getData = {
         method: "GET",
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllTestimonials", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllTestimonials", getData)
     const fetchedData = await response.json()
     const testimonials = fetchedData.allTestimonials;
+
+    if(testimonials.length === 0){
+        manageTestimonials.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No testimonials found!
+            </div>
+        
+        `
+    }
+
+    else{
 
     for(let i=0; i<testimonials.length; i++){
         const testimonialArray = testimonials[i];
@@ -41,6 +54,8 @@ async function manageTestimonial(){
         
         manageTestimonials.innerHTML += testimonialTemplate
     }
+
+}
 }
 
 
@@ -72,7 +87,7 @@ let deleteTestimonial= async() => {
        },
     }
 
-    let response = await fetch(`http://localhost:5000/deleteTestimonial?testimonialId=${testimonialIdDeletion}`, deleteOptions)
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/deleteTestimonial?testimonialId=${testimonialIdDeletion}`, deleteOptions)
     const fetchDeletedPost = await response.json();
     console.log(fetchDeletedPost)
         if(fetchDeletedPost.successMessage){ 

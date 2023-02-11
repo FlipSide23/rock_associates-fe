@@ -44,7 +44,7 @@ async function createPost(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/createPost", sendData)
+fetch("https://rockassociates-api.herokuapp.com/createPost", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

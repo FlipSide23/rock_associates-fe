@@ -45,7 +45,7 @@ async function addTestimonial(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/addTestimonial", sendData)
+fetch("https://rockassociates-api.herokuapp.com/addTestimonial", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

@@ -5,7 +5,7 @@ function hideRegisteredUsersLoader(){
 
 async function fetchRegisteredUsers(){
         
-    let response = await fetch("http://localhost:5000/getRegisteredUsers")
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getRegisteredUsers")
     
     const allUsers = await response.json(); 
     hideRegisteredUsersLoader()

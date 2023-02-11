@@ -9,7 +9,7 @@ const checkToken = JSON.parse(localStorage.getItem("token"))
 		headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
 	}
 
-	let response = await fetch("http://localhost:5000/loggedInUser", getData)
+	let response = await fetch("https://rockassociates-api.herokuapp.com/loggedInUser", getData)
 	const fetchedData = await response.json()
 	console.log(fetchedData)
 

@@ -15,7 +15,7 @@ async function users(){
         headers: {"auth_token": JSON.parse(sessionStorage.getItem("token"))}
     }
 // Registered Users
-  let response = await fetch("http://localhost:5000/getRegisteredUsers", getData)
+  let response = await fetch("https://rockassociates-api.herokuapp.com/getRegisteredUsers", getData)
   const fetchedData = await response.json()
    
     const users = fetchedData.RegisteredUsers;
@@ -23,7 +23,7 @@ async function users(){
     countUsers.innerHTML = users.length;
 
 // Number of posts
-let postsResponse = await fetch("http://localhost:5000/getAllPosts?perPage=10000000000", getData)
+let postsResponse = await fetch("https://rockassociates-api.herokuapp.com/getAllPosts?perPage=10000000000", getData)
     const postsFetchedData = await postsResponse.json()
 
     const posts = postsFetchedData.allAvailablePosts;
@@ -34,7 +34,7 @@ let postsResponse = await fetch("http://localhost:5000/getAllPosts?perPage=10000
 
     // Subscribers
 
-let subscriptionResponse = await fetch("http://localhost:5000/getAllSubscriptions")
+let subscriptionResponse = await fetch("https://rockassociates-api.herokuapp.com/getAllSubscriptions")
     
     const allResults = await subscriptionResponse.json(); 
     const results = allResults.subscribers;
@@ -42,7 +42,7 @@ counterContainer.innerHTML = results.length
 
 
 // Client Messages
-    let responseMessages = await fetch("http://localhost:5000/getAllMessages")
+    let responseMessages = await fetch("https://rockassociates-api.herokuapp.com/getAllMessages")
     
     const allResultsMessages = await responseMessages.json(); 
     document.title = "Rock Associates Company Ltd | Dashboard"

@@ -30,7 +30,7 @@ async function addService(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/addService", sendData)
+fetch("https://rockassociates-api.herokuapp.com/addService", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

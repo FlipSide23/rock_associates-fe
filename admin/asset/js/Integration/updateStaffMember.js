@@ -7,7 +7,7 @@ async function memberDetails(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch(`http://localhost:5000/getSingleMember?memberId=${memberId}`, getData)
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/getSingleMember?memberId=${memberId}`, getData)
     const fetchedData = await response.json()
     console.log(fetchedData)
 
@@ -87,7 +87,7 @@ async function updateStaffMember(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch(`http://localhost:5000/updateMember?memberId=${memberId}`, sendData)
+fetch(`https://rockassociates-api.herokuapp.com/updateMember?memberId=${memberId}`, sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

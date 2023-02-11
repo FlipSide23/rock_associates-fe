@@ -8,11 +8,21 @@ async function getAllServices(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllServices", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllServices", getData)
     
     const allStaff = await response.json(); 
     const results = allStaff.allServices;
 
+    if(results.length === 0){
+        console.log("there is no post")
+        servicesContainer.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No Service added!
+            </div>
+        
+        `
+    }
+    else{
         const serviceTemplate = results.map(myFunction).join(' ');
 
         function myFunction(eachService) {
@@ -33,6 +43,7 @@ async function getAllServices(){
         }
 
         servicesContainer.innerHTML = serviceTemplate;
+    }
 
         }
         

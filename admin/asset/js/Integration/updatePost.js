@@ -7,7 +7,7 @@ async function getPostDetails(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
     
-    let response = await fetch(`http://localhost:5000/getSinglePost?slug=${slug}`, getData)
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/getSinglePost?slug=${slug}`, getData)
     console.log(response)
     const fetchedData = await response.json() 
 
@@ -76,7 +76,7 @@ function UpdatePost(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch(`http://localhost:5000/updatePost?slug=${slug}`, sendData)
+fetch(`https://rockassociates-api.herokuapp.com/updatePost?slug=${slug}`, sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

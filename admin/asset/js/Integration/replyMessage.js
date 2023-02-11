@@ -21,7 +21,7 @@ async function getMessage() {
 
 
 
-    let response = await fetch('http://localhost:5000/getMessageById/'+messageId, getOptions)
+    let response = await fetch('https://rockassociates-api.herokuapp.com/getMessageById/'+messageId, getOptions)
     const fetchSingleMessage = await response.json();
     // hidereplyMessagesLoader()
 
@@ -72,7 +72,7 @@ function replyMessage(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/replyMessage/"+messageId, sendData)
+fetch("https://rockassociates-api.herokuapp.com/replyMessage/"+messageId, sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

@@ -1,12 +1,24 @@
-async function manageServices(){
+const manageServices = document.getElementById("manageServices");
+async function manageServicesFunction(){
     const getData = {
         method: "GET",
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllServices", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllServices", getData)
     const fetchedData = await response.json()
     const services = fetchedData.allServices;
+
+    if(services.length === 0){
+        manageServices.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No Services found!
+            </div>
+        
+        `
+    }
+
+    else{
 
     for(let i=0; i<services.length; i++){
         const serviceArray = services[i];
@@ -15,8 +27,6 @@ async function manageServices(){
         const title = serviceArray.serviceTitle;
         const description = serviceArray.serviceDescription.slice(0, 600)+"...";
 
-
-        const manageServices = document.getElementById("manageServices");
         
         const serviceTemplate = `
                 <div class="serviceBoxes">
@@ -35,10 +45,12 @@ async function manageServices(){
         
         manageServices.innerHTML += serviceTemplate
     }
+
+}
 }
 
 
-manageServices()
+manageServicesFunction()
 
 
 //popup
@@ -66,7 +78,7 @@ let deleteService= async() => {
        },
     }
 
-    let response = await fetch(`http://localhost:5000/deleteService?serviceId=${serviceIdDeletion}`, deleteOptions)
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/deleteService?serviceId=${serviceIdDeletion}`, deleteOptions)
     const fetchDeletedPost = await response.json();
     console.log(fetchDeletedPost)
         if(fetchDeletedPost.successMessage){ 

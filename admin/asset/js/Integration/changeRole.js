@@ -14,7 +14,7 @@ let getSingleUser= async(userId) => {
 
 
 
-    let response = await fetch('https://rockassociates.cyclic.app/getSingleUser/'+userId, getOptions)
+    let response = await fetch('https://rockassociates-api.herokuapp.com/getSingleUser/'+userId, getOptions)
     const fetchSingleUser = await response.json();
     console.log(fetchSingleUser)
 
@@ -45,9 +45,8 @@ async function getUser() {
 
 
 
-    let response = await fetch('https://rockassociates.cyclic.app/getSingleUser/'+userId, getOptions)
+    let response = await fetch('https://rockassociates-api.herokuapp.com/getSingleUser/'+userId, getOptions)
     const fetchSingleUser = await response.json();
-    hideChangeRoleLoader()
     document.title = "Rock Associates Company Ltd | Dashboard"
     const singleUser = fetchSingleUser.fetchedUser
 
@@ -90,7 +89,7 @@ function updateRole() {
         headers: new Headers({'Content-Type': 'application/json; charset=UTF-8', 'auth_token': JSON.parse(sessionStorage.getItem('token'))}),
      };
      
-fetch('https://rockassociates.cyclic.app/assignUserRole/'+userRoleId, UserRequestOptions,)
+fetch('https://rockassociates-api.herokuapp.com/assignUserRole/'+userRoleId, UserRequestOptions,)
 .then(response => response.json())
 .then((roleFetchedData)=>{
     console.log(roleFetchedData)

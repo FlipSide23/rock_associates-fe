@@ -1,6 +1,7 @@
 
 //popup
 const popupBoxClientMessages = document.getElementById("popupBoxClientMessages")
+let resultsContainer = document.getElementById("messagesContainer");
 let messageIdDeletion;
 
 function openPopupClientMessages(message_id){
@@ -26,7 +27,7 @@ let deleteMessage= async() => {
        },
     }
 
-    let response = await fetch('http://localhost:5000/deleteMessage/'+messageIdDeletion, deleteOptions)
+    let response = await fetch('https://rockassociates-api.herokuapp.com/deleteMessage/'+messageIdDeletion, deleteOptions)
     const fetchDeletedPost = await response.json();
     console.log(fetchDeletedPost)
         if(fetchDeletedPost.deletedMessage){ 
@@ -47,14 +48,25 @@ function hideMessagesLoader(){
 
 async function fetchMessages(){
         
-    let response = await fetch("http://localhost:5000/getAllMessages")
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllMessages")
     
     const allResults = await response.json(); 
     const results = allResults.clientMessages;
     hideMessagesLoader()
+
+    if(results.length === 0){
+        resultsContainer.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No messages found!
+            </div>
+        
+        `
+    }
+
+    else{
    
     for(let i=0;i<results.length;i++){
-        let resultsContainer = document.getElementById("messagesContainer");
+        
 
         let resultsArray = results[i];
 
@@ -114,6 +126,8 @@ async function fetchMessages(){
     }
     
         }
+
+    }
         
     }
 
@@ -138,7 +152,7 @@ let getSingleMessage= async(messageId) => {
 
 
 
-    let response = await fetch('http://localhost:5000/getMessageById/'+messageId, getOptions)
+    let response = await fetch('https://rockassociates-api.herokuapp.com/getMessageById/'+messageId, getOptions)
     const fetchSingleMessage = await response.json();
     console.log(fetchSingleMessage)
 

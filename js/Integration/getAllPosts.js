@@ -16,14 +16,14 @@ async function getAllPosts(){
 
     }
   
-    let response = await fetch(`http://localhost:5000/getAllPosts`+query)    
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/getAllPosts`+query)    
     const allPosts = await response.json(); 
     let posts = allPosts.allAvailablePosts;
     console.log(posts) 
     window.scrollTo(0, 0); 
     if(posts.length === 0){
         postsContainer.innerHTML = `
-            <div class="noPostFound">
+            <div class="perfectCenteredNoItemFound">
                 No Post found
             </div>
         
@@ -87,8 +87,13 @@ let totalPages = allPosts.paginationDetails.totalPages;
 let currentPage = allPosts.paginationDetails.currentPage;
 let totalPosts = allPosts.paginationDetails.total;
 pageCountValue.innerHTML = currentPage;
-totalPosts>1 ? numberOfPosts.innerHTML = `${totalPosts} posts` : `${totalPosts} post` ;
-
+console.log(totalPosts)
+if(totalPosts == 1){
+    numberOfPosts.innerHTML = `${totalPosts} post`
+}
+else{
+    numberOfPosts.innerHTML = `${totalPosts} posts`  
+}
 
 function pagination(totalPages, currentPage){
     let paginationDetail = ''

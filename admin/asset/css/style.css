@@ -467,6 +467,18 @@ div.preNavLogout h5 a:hover{
 
 /* Logged In user dropdown */
 
+.perfectCenteredNoItemFound{
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+  width: 100%;
+	font-size: 25px;
+	padding: 200px;
+	font-weight: bold;
+	color: rgb(177, 177, 177) ;
+}
+
 /*start: Mega Menu*/
 
 .menu-large {

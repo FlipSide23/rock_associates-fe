@@ -1,6 +1,7 @@
 
 // Get all staff members
 let staffContainer = document.getElementById("staffContainer");
+
 async function getAllStaffMembers(){
         
     const getData = {
@@ -8,10 +9,21 @@ async function getAllStaffMembers(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllMembers", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllMembers", getData)
     
     const allStaff = await response.json(); 
     const results = allStaff.allStaffMembers;
+
+    if(results.length === 0){
+       staffContainer.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No team added!
+            </div>
+        
+        `
+    }
+
+    else{
 
         const staffTemplate = results.map(myFunction).join(' ');
 
@@ -47,10 +59,10 @@ async function getAllStaffMembers(){
         }
 
         staffContainer.innerHTML = staffTemplate;
+    
+       // Animate member items
 
-        // Animate member items
-
-        if ($('.three-item-carousel').length) {
+        if ($('.three-item-carousel').length ) {
             $('.three-item-carousel').owlCarousel({
                 loop:true,
                 margin:30,
@@ -78,7 +90,8 @@ async function getAllStaffMembers(){
                 }
             });    		
         }
-        
+    
+    }
 
         }
         

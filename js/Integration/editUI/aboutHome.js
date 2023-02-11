@@ -8,7 +8,7 @@ async function getAboutHome(){
             headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
         }
 
-        let response = await fetch("http://localhost:5000/getAbout", getData)
+        let response = await fetch("https://rockassociates-api.herokuapp.com/getAbout", getData)
         
         const aboutUs = await response.json(); 
         const about = aboutUs.aboutContent;

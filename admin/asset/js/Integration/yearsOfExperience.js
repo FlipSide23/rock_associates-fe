@@ -13,7 +13,7 @@ async function getExperience() {
 
 
 
-    let response = await fetch('http://localhost:5000/getExperience', getOptions)
+    let response = await fetch('https://rockassociates-api.herokuapp.com/getExperience', getOptions)
     const fetchAbout = await response.json();
 
     const experienceContent = fetchAbout.experienceContent
@@ -49,7 +49,7 @@ function updateExperience(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch("http://localhost:5000/updateExperience", sendData)
+fetch("https://rockassociates-api.herokuapp.com/updateExperience", sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)

@@ -1,12 +1,25 @@
+const manageStaffMembers = document.getElementById("manageStaffMembers");
+
 async function manageStaff(){
     const getData = {
         method: "GET",
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
 
-    let response = await fetch("http://localhost:5000/getAllMembers", getData)
+    let response = await fetch("https://rockassociates-api.herokuapp.com/getAllMembers", getData)
     const fetchedData = await response.json()
     const members = fetchedData.allStaffMembers;
+
+    if(members.length === 0){
+        manageStaffMembers.innerHTML = `
+            <div class="perfectCenteredNoItemFound">
+                No members found!
+            </div>
+        
+        `
+    }
+
+    else{
 
     for(let i=0; i<members.length; i++){
         const staffArray = members[i];
@@ -17,7 +30,7 @@ async function manageStaff(){
         const position = staffArray.position
 
 
-        const manageStaffMembers = document.getElementById("manageStaffMembers");
+        
         
         const staffTemplate = `
                 <div class="blogBoxes blogBox1">
@@ -38,6 +51,8 @@ async function manageStaff(){
         
         manageStaffMembers.innerHTML += staffTemplate
     }
+
+}
 }
 
 
@@ -69,7 +84,7 @@ let deleteMember= async() => {
        },
     }
 
-    let response = await fetch(`http://localhost:5000/deleteMember?memberId=${memberIdDeletion}`, deleteOptions)
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/deleteMember?memberId=${memberIdDeletion}`, deleteOptions)
     const fetchDeletedPost = await response.json();
     console.log(fetchDeletedPost)
         if(fetchDeletedPost.successMessage){ 

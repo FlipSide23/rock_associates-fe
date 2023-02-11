@@ -8,7 +8,7 @@ async function getProjectDetails(){
         headers: {"auth_token": JSON.parse(localStorage.getItem("token"))}
     }
     
-    let response = await fetch(`http://localhost:5000/getSingleProject?slug=${slug}`, getData)
+    let response = await fetch(`https://rockassociates-api.herokuapp.com/getSingleProject?slug=${slug}`, getData)
     console.log(response)
     const fetchedData = await response.json() 
 
@@ -107,7 +107,7 @@ async function updateProject(){
         headers: new Headers({"auth_token": JSON.parse(localStorage.getItem("token")), 'Content-Type': 'application/json; charset=UTF-8'})
     }
 
-fetch(`http://localhost:5000/updateProject?slug=${slug}`, sendData)
+fetch(`https://rockassociates-api.herokuapp.com/updateProject?slug=${slug}`, sendData)
 .then(response => response.json())
 .then((fetchedData)=>{
     console.log(fetchedData)
