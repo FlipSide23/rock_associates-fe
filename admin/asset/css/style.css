@@ -474,7 +474,7 @@ div.preNavLogout h5 a:hover{
 	margin: auto;
   width: 100%;
 	font-size: 25px;
-	padding: 200px;
+	padding: 200px 0px;
 	font-weight: bold;
 	color: rgb(177, 177, 177) ;
 }
@@ -5976,7 +5976,7 @@ div.positionPanelBody{
   font-weight: 100;
   overflow: auto;
   font-size: 1.7em;
-  background-image: url(../../../images/sabyinyo.jpg);
+  background-image: url(../../../images/background/14.jpg);
   background-position: center;
 }
 
