@@ -35,7 +35,7 @@ fetch("https://rockassociates-api.herokuapp.com/Subscribe", sendData)
         subscriptionStatus.style.color = "black"
         subscriptionErrorMessage.style.color = "black"
         subscriptionStatus.innerHTML = "Done!"
-        subscriptionErrorMessage.innerHTML = "Thank you for subscribing on our News Letter! To receive our updates go to your email to verify this email address!"
+        subscriptionErrorMessage.innerHTML = "Thank you for subscribing on our News Letter!"
         submitSubscription.innerHTML= "Subscribe"
     }
 
