@@ -19,7 +19,7 @@ function closePopupCommentLikes(){
 
 
 function goToLogin(){
-    location = "login.html"
+    location = "login"
 }
 
 

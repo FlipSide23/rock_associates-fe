@@ -99,10 +99,10 @@ async function loggedInUser(){
     
         //Go to admin panel
         dashboard.addEventListener("click", ()=>{
-            location = "admin/dashboard.html"
+            location = "admin/dashboard"
         })
         contactUs.addEventListener("click", ()=>{
-            location = "index.html#contact"
+            location = "index#contact"
             UserProfile.style.display = "none"
         })
 

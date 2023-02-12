@@ -9,7 +9,7 @@ loginMessage.style.display = "none"
 
 const MyToken = JSON.parse(localStorage.getItem("token"))
 if (MyToken){
-    location = "index.html"
+    location = "index"
 }
 
 submit.addEventListener("click", (event)=>{

@@ -49,16 +49,16 @@ async function getAllPosts(){
             <div class="news-block col-lg-6 col-md-12 col-sm-12" id="${postId}">
                 <div class="inner-box">
                     <div class="image">
-                        <a href="blog-single.html?slug=${slug}"><img src="${postImage}" alt="" /></a>
+                        <a href="blog-single?slug=${slug}"><img src="${postImage}" alt="" /></a>
                     </div>
                     <div class="lower-content">
                         <ul class="post-meta">
                             <li>${postCreator}</li>
                             <li>${createdAt}</li>
                         </ul>
-                        <h3><a href="blog-single.html?slug=${slug}">${title}</a></h3>
+                        <h3><a href="blog-single?slug=${slug}">${title}</a></h3>
                         <div style="display: flex; justify-content: space-between;">
-                            <a href="blog-single.html?slug=${slug}" class="read-more">Read More</a>
+                            <a href="blog-single?slug=${slug}" class="read-more">Read More</a>
                             <div class="blogReactions" style="display: flex; justify-content: space-between; gap: 10px;">
                             <span><i class="fa fa-thumbs-up"></i>(${likes_count})</span> 
                             <span><i class="fa fa-comments"></i>(${comments_count})</span> 

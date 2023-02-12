@@ -116,8 +116,8 @@ async function getRelatedPosts(){
             let postTemplate = `
         
             <article class="post" id="${postId}">
-                <figure class="post-thumb"><img src="${postImage}" alt=""><a href="blog-single.html?slug=${slug}" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
-                <div class="text"><a href="blog-single.html?slug=${slug}">${title}</a></div>
+                <figure class="post-thumb"><img src="${postImage}" alt=""><a href="blog-single?slug=${slug}" class="overlay-box"><span class="icon fa fa-link"></span></a></figure>
+                <div class="text"><a href="blog-single?slug=${slug}">${title}</a></div>
                 <div class="post-info">${createdAt}</div>
             </article>
             

@@ -105,10 +105,10 @@ async function loggedInUser(){
     
         //Go to admin panel
         dashboardSticky.addEventListener("click", ()=>{
-            location = "admin/dashboard.html"
+            location = "admin/dashboard"
         })
         contactUsSticky.addEventListener("click", ()=>{
-            location = "index.html#contact"
+            location = "index#contact"
             UserProfileSticky.style.display = "none"
         })
 

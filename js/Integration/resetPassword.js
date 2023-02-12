@@ -1,6 +1,6 @@
 const tokenAvailable = JSON.parse(localStorage.getItem("token"))
 if (tokenAvailable){
-    location = "index.html"
+    location = "index"
 }
 
 const resetPasswordForm = document.getElementById("resetPasswordForm");
@@ -56,7 +56,7 @@ fetch("https://rockassociates-api.herokuapp.com/newPassword", sendData)
 
         resetPasswordForm.reset()
 
-        setTimeout(()=>{location="login.html"}, 2000)
+        setTimeout(()=>{location="login"}, 2000)
     }
 
     else if(newPasswordFetchedData.validationError){

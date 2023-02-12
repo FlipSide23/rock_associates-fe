@@ -1,6 +1,6 @@
 const tokenAvailable = JSON.parse(localStorage.getItem("token"))
 if (tokenAvailable){
-    location = "index.html"
+    location = "index"
 }
 
 const signupForm = document.getElementById("signupForm");
@@ -58,7 +58,7 @@ fetch("https://rockassociates-api.herokuapp.com/createUser", sendData)
         signupMessage.innerHTML = fetchedData.successMessage
         submitData.innerHTML = "Create an account"
         signupForm.reset()
-        setTimeout(()=>{location = "login.html"}, 3000)
+        setTimeout(()=>{location = "login"}, 3000)
     }
 
     else if (fetchedData.validationError){

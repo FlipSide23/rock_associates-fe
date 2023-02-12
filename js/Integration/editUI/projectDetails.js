@@ -121,11 +121,11 @@ async function getAllProjects(){
                     <img src="${eachProject.projectImage}" alt="" />
                     <div class="overlay-box">
                         <div class="options">
-                            <a href="projects-detail.html?slug=${eachProject.slug}" class="plus-icon"><span class="icon flaticon-unlink"></span></a>
+                            <a href="projects-detail?slug=${eachProject.slug}" class="plus-icon"><span class="icon flaticon-unlink"></span></a>
                             
                         </div>
                         <div class="content clearfix centerProjectTitle">
-                            <h3><a href="projects-detail.html?slug=${eachProject.slug}">${eachProject.title}</a></h3>
+                            <h3><a href="projects-detail?slug=${eachProject.slug}">${eachProject.title}</a></h3>
                         </div>
                     </div>
                 </div>
