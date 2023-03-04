@@ -73,7 +73,7 @@ async function getAllProjects(){
                             
                         </div>
                         <div class="content clearfix centerProjectTitle">
-                            <h3><a href="projects-detail?slug=${eachProject.slug}">${eachProject.title}</a></h3>
+                            <h3><a href="projects-detail?slug=${eachProject.slug}">${eachProject.title.length > 60 ? eachProject.title.slice(0, 60)+"...": eachProject.title}</a></h3>
                         </div>
                     </div>
                 </div>

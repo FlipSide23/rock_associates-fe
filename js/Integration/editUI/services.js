@@ -26,8 +26,8 @@ async function getServices(){
         return `
         <div class="services-block-two">
             <div class="inner-box">
-                <h3><a href="services-detail">${eachService.serviceTitle.slice(0, 40)+"..."}</a></h3>
-                <div class="text">${eachService.serviceDescription.slice(0, 150)+"..."}</div>
+                <h3><a href="services-detail">${eachService.serviceTitle.length > 40 ? eachService.serviceTitle.slice(0, 40)+"..." : eachService.serviceTitle}</a></h3>
+                <div class="text">${eachService.serviceDescription.length > 150 ? eachService.serviceDescription.slice(0, 150)+"...": eachService.serviceDescription}</div>
                 
             </div>
         </div>
